@@ -1,0 +1,29 @@
+{
+  "name": "promptrn-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "playwright:install": "playwright install chromium",
+    "playwright:open": "playwright open",
+    "playwright:codegen": "playwright codegen",
+    "mcp": "playwright-mcp",
+    "lighthouse": "lighthouse"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gegibson-oss/promptRN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gegibson-oss/promptRN/issues"
+  },
+  "homepage": "https://github.com/gegibson-oss/promptRN#readme",
+  "devDependencies": {
+    "@playwright/mcp": "^0.0.68",
+    "lighthouse": "^13.0.3",
+    "playwright": "^1.59.0-alpha-1771104257000"
+  }
+}

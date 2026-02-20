@@ -1,0 +1,10 @@
+{
+  "slug": "newly-diagnosed",
+  "title": "Newly Diagnosed",
+  "summary": "A structured starting point for patients who just received a diagnosis and need clarity before the next appointment.",
+  "seo_title": "Newly Diagnosed Support | PromptRN",
+  "seo_description": "Find condition-specific prompt packs and guidance if you were recently diagnosed.",
+  "related_conditions": [
+    "type-2-diabetes-diagnosis"
+  ]
+}

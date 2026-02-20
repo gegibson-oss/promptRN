@@ -1,0 +1,135 @@
+:root {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #102033;
+  --muted: #5a6a7c;
+  --accent: #006d77;
+  --accent-contrast: #ffffff;
+  --border: #d8e2ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #eef3fb 0%, #f8fafc 240px, #f7f9fc 100%);
+}
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+}
+
+.page-content {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.hero,
+section,
+.condition-page {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.button,
+button,
+.cta {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.card-list li,
+.prompt-card,
+details {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fdfefe;
+  padding: 0.8rem;
+}
+
+.alert {
+  color: #7a2f2f;
+  background: #fde7e7;
+  border: 1px solid #f5b3b3;
+  border-radius: 8px;
+  padding: 0.6rem;
+}
+
+.last-updated {
+  color: var(--muted);
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+pre {
+  white-space: pre-wrap;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.8rem;
+  background: #f4f8fb;
+}

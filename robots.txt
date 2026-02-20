@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /private/
+Disallow: /auth/
+Disallow: /billing/
+Disallow: /members/
+
+Sitemap: https://promptrn.com/sitemap.php

@@ -1,0 +1,134 @@
+{
+  "slug": "hypothyroidism",
+  "condition_name": "Hypothyroidism",
+  "situation": "newly-diagnosed",
+  "seo": {
+    "page_title": "AI Prompts for Hypothyroidism | Nurse-Written - PromptRN",
+    "meta_description": "Nurse-written AI prompts for patients managing Hypothyroidism. Understand your diagnosis, medications, labs, and next steps.",
+    "h1": "12 AI Prompts to Help You Navigate Hypothyroidism",
+    "primary_keyword": "AI prompts for hypothyroidism",
+    "secondary_keywords": [
+      "nurse written prompts for hypothyroidism",
+      "understand hypothyroidism diagnosis",
+      "questions to ask doctor about hypothyroidism"
+    ]
+  },
+  "clinical_context": "Hypothyroidism symptoms are broad and often overlap with stress, aging, or depression. These prompts help patients connect symptoms, medication timing, and realistic treatment expectations.",
+  "patient_fears": [
+    "What does this diagnosis mean for my daily life?",
+    "Will this get worse quickly?",
+    "How do I know if treatment is working?",
+    "What symptoms require urgent care?",
+    "How do I explain this to my family?"
+  ],
+  "author": {
+    "name": "Sarah Mitchell RN",
+    "credentials": "Registered Nurse",
+    "experience": "12 years in chronic care, primary care, and patient education",
+    "linkedin": "https://linkedin.com/in/sarahmitchellrn"
+  },
+  "free_prompts": [
+    {
+      "id": "p01",
+      "title": "Understand Your Diagnosis in Plain Language",
+      "prompt": "I was recently diagnosed with Hypothyroidism. Explain what this diagnosis means in plain language, what changes are happening in my body, and what early goals usually matter most in the first 90 days.",
+      "why_it_works": "This prompt forces the model to explain the diagnosis without jargon and prioritize near-term actions so patients do not feel overwhelmed."
+    },
+    {
+      "id": "p02",
+      "title": "Medication and Side Effect Clarity",
+      "prompt": "I was prescribed [medication name and dose] for Hypothyroidism. Explain what this medication does, common side effects versus rare side effects, what timeline I should expect for benefit, and what warning signs mean I should contact my clinician.",
+      "why_it_works": "Patients often stop treatment early because expected effects are mistaken for dangerous effects. This prompt separates expected from urgent."
+    },
+    {
+      "id": "p03",
+      "title": "Build Your Next Appointment Agenda",
+      "prompt": "I have a follow-up visit for Hypothyroidism. Create a prioritized list of the 10 most important questions to ask my clinician, including treatment goals, tracking plans, and warning symptoms.",
+      "why_it_works": "A prioritized list increases the chance that the most clinically important questions get answered when visit time is limited."
+    }
+  ],
+  "paid_prompts": [
+    {
+      "id": "p04",
+      "title": "Interpret Your Home Tracking Data",
+      "prompt": "Based on my last 14 days of symptom and home tracking notes, help me identify useful trends for Hypothyroidism and draft an update I can send to my clinician.",
+      "why_it_works": "It translates raw logs into a concise pattern summary that clinicians can review quickly."
+    },
+    {
+      "id": "p05",
+      "title": "Create a Realistic Week Plan",
+      "prompt": "Create a practical one-week routine for Hypothyroidism that includes meals, movement, sleep targets, and medication timing. Keep it realistic for someone with a full-time schedule.",
+      "why_it_works": "Patients need plans that fit real life. This prompt asks for implementation detail, not generic advice."
+    },
+    {
+      "id": "p06",
+      "title": "Lab and Test Result Decoder",
+      "prompt": "Explain my recent lab and test results for Hypothyroidism in simple language and tell me which values matter most for treatment decisions.",
+      "why_it_works": "Most anxiety comes from unclear test results. This prompt converts numbers into meaning and next questions."
+    },
+    {
+      "id": "p07",
+      "title": "Emergency vs Non-Emergency Symptoms",
+      "prompt": "Create a clear action chart for Hypothyroidism: symptoms that are routine, symptoms requiring same-day contact, and symptoms requiring emergency care.",
+      "why_it_works": "A clear escalation framework reduces delay in urgent situations and reduces unnecessary panic for non-urgent symptoms."
+    },
+    {
+      "id": "p08",
+      "title": "Medication Change Planning",
+      "prompt": "If my current treatment for Hypothyroidism is not enough, explain common next-step options, tradeoffs, and the questions I should ask before changing medications.",
+      "why_it_works": "It prepares patients for shared decision-making instead of passive acceptance or avoidance."
+    },
+    {
+      "id": "p09",
+      "title": "Comorbidity Interaction Check",
+      "prompt": "I also have [other conditions]. Explain how those conditions may affect management of Hypothyroidism and what to discuss with my care team.",
+      "why_it_works": "Patients with multiple diagnoses need integrated guidance. This prompt asks for interaction-aware planning."
+    },
+    {
+      "id": "p10",
+      "title": "Family Conversation Script",
+      "prompt": "Draft a short conversation script to explain my Hypothyroidism diagnosis to family, including what support I need and what misconceptions to avoid.",
+      "why_it_works": "Family dynamics influence adherence. This prompt converts clinical facts into supportive communication."
+    },
+    {
+      "id": "p11",
+      "title": "Mental Health and Burnout Support",
+      "prompt": "I feel anxious and burned out managing Hypothyroidism. Give me practical coping strategies and a plan to bring these concerns to my clinician.",
+      "why_it_works": "Treatment plans fail when emotional burden is ignored. This prompt makes psychosocial support actionable."
+    },
+    {
+      "id": "p12",
+      "title": "30-Day Progress Review",
+      "prompt": "Help me run a 30-day check-in for Hypothyroidism: what improved, what stayed hard, and what I should adjust before my next appointment.",
+      "why_it_works": "A structured review reinforces progress and identifies barriers early."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can AI help me understand Hypothyroidism?",
+      "answer": "Yes, if prompts are specific and structured. PromptRN prompts are nurse-written to focus on common patient gaps after diagnosis."
+    },
+    {
+      "question": "Are these prompts medical advice?",
+      "answer": "No. They are educational tools to help you understand information and ask better questions during real clinical care."
+    },
+    {
+      "question": "Which AI model should I use?",
+      "answer": "Use a current model such as ChatGPT, Claude, or Gemini, then verify important decisions with your healthcare team."
+    },
+    {
+      "question": "How quickly can I use the full pack?",
+      "answer": "Immediately after purchase or subscription. Access is granted as soon as webhook processing completes."
+    }
+  ],
+  "related_conditions": ["high-cholesterol","anxiety-disorder-newly-diagnosed","osteoarthritis"],
+  "related_situations": [
+    "understanding-lab-results",
+    "talking-to-your-doctor",
+    "managing-chronic-illness",
+    "medication-questions"
+  ],
+  "stripe_product_id": "prod_hypothyroidism",
+  "pack_price_usd": 9,
+  "last_updated": "2026-02-20"
+}

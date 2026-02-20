@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Prompts for Type 2 Diabetes Diagnosis | Nurse-Written Guides</title>
+  <meta name="description" content="Confused after your Type 2 diabetes diagnosis? These 12 nurse-written AI prompts help you understand your condition, medications, and next steps in plain language.">
+  <link rel="canonical" href="https://yoursite.com/prompts/type-2-diabetes-diagnosis">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "AI Prompts for Newly Diagnosed Type 2 Diabetes Patients",
+    "description": "Nurse-written AI prompts to help patients understand their Type 2 diabetes diagnosis",
+    "medicalAudience": "Patient",
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Type 2 Diabetes"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Sarah Mitchell RN",
+      "jobTitle": "Registered Nurse",
+      "description": "12 years clinical experience in endocrinology and primary care"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can AI actually help me understand my diabetes diagnosis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, when used with the right prompts. The key is asking specific, structured questions rather than vague ones. These nurse-designed prompts are built around the exact questions patients need answered after diagnosis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will I need insulin for Type 2 diabetes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily at first. Type 2 diabetes is often managed initially with lifestyle changes and oral medications. Use the prompts on this page to have a detailed AI conversation about your specific A1C level and what it means for your treatment plan."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --cream: #FAF7F2;
+      --warm-white: #FFFEF9;
+      --ink: #1A1612;
+      --ink-light: #4A4540;
+      --ink-muted: #8A8480;
+      --amber: #C8721A;
+      --amber-light: #F4E4CC;
+      --amber-pale: #FDF6EC;
+      --teal: #1A6B6B;
+      --teal-light: #E8F4F4;
+      --red-soft: #C14040;
+      --border: #E8E2D8;
+      --border-strong: #D4CCC0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .logo {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: var(--amber);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .nav-cta {
+      background: var(--ink);
+      color: var(--cream) !important;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-size: 0.825rem !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--amber) !important; }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+    }
+
+    .breadcrumb-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    .breadcrumb a {
+      color: var(--amber);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--warm-white);
+      padding: 56px 24px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--teal-light);
+      color: var(--teal);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    h1 em {
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    .hero-intro {
+      font-size: 1.05rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 560px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-family: 'Lora', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      margin-top: 4px;
+    }
+
+    /* Author card */
+    .author-card {
+      background: var(--amber-pale);
+      border: 1px solid var(--amber-light);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .author-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--amber) 0%, #8B4513 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .author-info h3 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .author-info p {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .author-bio {
+      font-size: 0.875rem;
+      color: var(--ink-light);
+      line-height: 1.6;
+      border-top: 1px solid var(--amber-light);
+      padding-top: 14px;
+    }
+
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      color: var(--teal);
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* ─── MAIN LAYOUT ─── */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ─── CLINICAL CONTEXT ─── */
+    .clinical-box {
+      background: var(--teal-light);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+
+    .clinical-box-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .clinical-box p {
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+
+    /* ─── SECTION HEADERS ─── */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    /* ─── PROMPT CARDS (FREE) ─── */
+    .prompts-section {
+      margin-bottom: 48px;
+    }
+
+    .prompt-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prompt-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--amber);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .prompt-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border-color: var(--border-strong);
+    }
+
+    .prompt-number {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+
+    .prompt-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .prompt-box {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: var(--ink-light);
+      line-height: 1.6;
+      margin-bottom: 14px;
+      font-style: italic;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-light);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .copy-btn.copied {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+    }
+
+    .why-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+
+    .why-text {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── LOCKED SECTION ─── */
+    .locked-section {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+
+    .locked-header {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .locked-header h2 {
+      margin-bottom: 4px;
+    }
+
+    .locked-header p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    .locked-prompts-list {
+      padding: 0;
+    }
+
+    .locked-prompt-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--border);
+      filter: blur(0);
+    }
+
+    .locked-prompt-item:last-child {
+      border-bottom: none;
+    }
+
+    .locked-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .locked-title svg {
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .locked-badge {
+      font-size: 0.72rem;
+      background: var(--amber-light);
+      color: var(--amber);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .unlock-cta {
+      padding: 28px;
+      background: linear-gradient(135deg, var(--ink) 0%, #2D2520 100%);
+      text-align: center;
+    }
+
+    .unlock-cta p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--amber);
+      color: white;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-primary:hover {
+      background: #B5621A;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(200,114,26,0.4);
+    }
+
+    .price-note {
+      color: rgba(255,255,255,0.5) !important;
+      font-size: 0.8rem !important;
+      margin-top: 10px !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-section {
+      margin-bottom: 48px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .faq-item:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-question {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      user-select: none;
+    }
+
+    .faq-question svg {
+      flex-shrink: 0;
+      color: var(--amber);
+      transition: transform 0.2s;
+    }
+
+    .faq-answer {
+      font-size: 0.9rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+      padding-top: 12px;
+      display: none;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-question svg {
+      transform: rotate(180deg);
+    }
+
+    /* ─── RELATED CONDITIONS ─── */
+    .related-section {
+      margin-bottom: 48px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .related-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .related-card:hover {
+      border-color: var(--amber);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .related-card-text {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .related-card-sub {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .related-arrow {
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+    }
+
+    .sidebar-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--ink) 0%, #2D2520 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .sidebar-cta h3 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .sidebar-cta p {
+      font-size: 0.825rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .btn-full {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+
+    .sidebar-list {
+      list-style: none;
+    }
+
+    .sidebar-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--ink-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-list li:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-list svg {
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .situation-link {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--amber);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .situation-link:hover { text-decoration: underline; }
+    .situation-link:last-child { border-bottom: none; }
+
+    /* ─── DISCLAIMER ─── */
+    .disclaimer {
+      background: var(--amber-pale);
+      border: 1px solid var(--amber-light);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    .disclaimer strong {
+      color: var(--ink-light);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 0.825rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: white; }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .footer-logo span { color: var(--amber); }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-inner { animation: fadeUp 0.5s ease both; }
+    .prompt-card { animation: fadeUp 0.4s ease both; }
+    .prompt-card:nth-child(2) { animation-delay: 0.08s; }
+    .prompt-card:nth-child(3) { animation-delay: 0.16s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .main { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      h1 { font-size: 1.8rem; }
+      .related-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Prompt<span>RN</span></a>
+    <nav>
+      <a href="/prompts">Browse Conditions</a>
+      <a href="/tools">Free Tools</a>
+      <a href="/about">About</a>
+      <a href="/signup" class="nav-cta">Get Full Access</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Home</a> › <a href="/prompts">All Conditions</a> › <a href="/prompts/newly-diagnosed">Newly Diagnosed</a> › Type 2 Diabetes
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Newly Diagnosed · 8 min read
+      </div>
+      <h1>AI Prompts to Help You Understand Your <em>Type 2 Diabetes</em> Diagnosis</h1>
+      <p class="hero-intro">Most patients leave their diabetes diagnosis appointment with more questions than answers. A nurse with 12 years in endocrinology wrote these prompts to help you get the real answers — in plain language, at your own pace.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">12</span>
+          <span class="stat-label">nurse-written prompts</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">3</span>
+          <span class="stat-label">free to try now</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">4.9★</span>
+          <span class="stat-label">from 214 patients</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="author-card">
+      <div class="author-header">
+        <div class="author-avatar">SM</div>
+        <div class="author-info">
+          <h3>Sarah Mitchell, RN</h3>
+          <p>Registered Nurse · Endocrinology</p>
+        </div>
+      </div>
+      <p class="author-bio">12 years of clinical experience in endocrinology and primary care. I wrote these prompts because I watched thousands of patients leave their diagnosis appointment overwhelmed and without the information they needed.</p>
+      <div class="verified-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        RN License Verified
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+  <div>
+
+    <!-- CLINICAL CONTEXT -->
+    <div class="clinical-box">
+      <div class="clinical-box-label">🩺 A Nurse's Note</div>
+      <p>The most important thing I want you to know: a Type 2 diagnosis is not a death sentence. What's happening in your body is manageable, often reversible, and absolutely understandable — if someone takes the time to explain it properly. Your doctor had 10 minutes. These prompts give you as long as you need.</p>
+    </div>
+
+    <!-- FREE PROMPTS -->
+    <div class="prompts-section">
+      <div class="section-label">Start Here — Free Prompts</div>
+      <h2>3 Prompts to Try Right Now</h2>
+
+      <!-- Prompt 1 -->
+      <div class="prompt-card">
+        <div class="prompt-number">Prompt 01 of 12</div>
+        <h3>Understanding What's Actually Happening in Your Body</h3>
+        <div class="prompt-box">
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          "I was just diagnosed with Type 2 diabetes and my A1C is [insert your number]. Please explain in simple terms what this number means, what is currently happening in my body, and what the difference is between someone who has prediabetes versus Type 2. I have no medical background so please avoid jargon."
+        </div>
+        <div class="why-label">Why this works</div>
+        <p class="why-text">Patients almost universally don't understand what their A1C number actually represents. By asking the AI to anchor its explanation to your specific number and compare it to adjacent diagnoses, you get a personalised explanation rather than a generic one. The "no jargon" instruction is critical — without it, AI defaults to clinical language that leaves patients more confused.</p>
+      </div>
+
+      <!-- Prompt 2 -->
+      <div class="prompt-card">
+        <div class="prompt-number">Prompt 02 of 12</div>
+        <h3>Understanding Your Medications</h3>
+        <div class="prompt-box">
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          "My doctor prescribed [medication name, e.g. Metformin 500mg twice daily]. Please explain: what this medication actually does in my body, why it was chosen over other options, what side effects I should genuinely watch for versus ones that are rare, and what I should do if I experience stomach upset in the first few weeks."
+        </div>
+        <div class="why-label">Why this works</div>
+        <p class="why-text">Metformin GI side effects cause many newly diagnosed patients to stop taking their medication before giving it a chance to work. This prompt surfaces the critical clinical nuance that GI side effects are common and temporary — information that makes a real difference in medication adherence and that your pharmacist may not have volunteered.</p>
+      </div>
+
+      <!-- Prompt 3 -->
+      <div class="prompt-card">
+        <div class="prompt-number">Prompt 03 of 12</div>
+        <h3>What Questions to Ask at Your Next Appointment</h3>
+        <div class="prompt-box">
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+          "I have a follow-up appointment with my doctor about my Type 2 diabetes diagnosis. My current A1C is [number], I am [age] years old, and I also have [any other conditions]. Please give me a specific list of the 10 most important questions I should ask, ordered by priority, including questions about my target A1C, how we'll track progress, warning signs, and whether my other conditions affect my diabetes management."
+        </div>
+        <div class="why-label">Why this works</div>
+        <p class="why-text">Most patients go into follow-up appointments without a prepared question list and leave having only answered the doctor's questions rather than their own. This prompt creates a personalised agenda based on your specific situation. The instruction to order by priority ensures you ask the most important things first if you run out of time — which you will.</p>
+      </div>
+    </div>
+
+    <!-- LOCKED SECTION -->
+    <div class="locked-section">
+      <div class="locked-header">
+        <div class="section-label">Full Prompt Pack</div>
+        <h2>9 More Nurse-Written Prompts</h2>
+        <p>Unlock the complete Type 2 Diabetes pack — or get access to all 500+ condition packs with a subscription.</p>
+      </div>
+
+      <div class="locked-prompts-list">
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Decoding Your Blood Sugar Numbers at Home
+          </div>
+          <span class="locked-badge">Prompt 04</span>
+        </div>
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Building a Diabetes-Friendly Meal Plan (Your Way)
+          </div>
+          <span class="locked-badge">Prompt 05</span>
+        </div>
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Understanding Long-Term Complications (and How to Prevent Them)
+          </div>
+          <span class="locked-badge">Prompt 06</span>
+        </div>
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Can I Reverse My Diabetes? Asking the Right Way
+          </div>
+          <span class="locked-badge">Prompt 07</span>
+        </div>
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Explaining Your Diagnosis to Family Members
+          </div>
+          <span class="locked-badge">Prompt 08</span>
+        </div>
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Exercise, Blood Sugar, and What You Need to Know First
+          </div>
+          <span class="locked-badge">Prompt 09</span>
+        </div>
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            What Warning Signs Mean You Need to Call Your Doctor
+          </div>
+          <span class="locked-badge">Prompt 10</span>
+        </div>
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Navigating Diabetes and Mental Health
+          </div>
+          <span class="locked-badge">Prompt 11</span>
+        </div>
+        <div class="locked-prompt-item">
+          <div class="locked-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Tracking Progress and Celebrating Small Wins
+          </div>
+          <span class="locked-badge">Prompt 12</span>
+        </div>
+      </div>
+
+      <div class="unlock-cta">
+        <p>Get this pack + every condition on the site. New packs added weekly.</p>
+        <a href="/signup" class="btn-primary">Unlock All 12 Prompts — $9</a>
+        <p class="price-note">Or get everything for $17/month · Cancel anytime</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <div class="section-label">Common Questions</div>
+      <h2>What Patients Ask Us</h2>
+
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can AI actually help me understand my diabetes diagnosis?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">Yes, when used with the right prompts. The key difference is asking specific, structured questions rather than vague ones. These nurse-designed prompts are built around the exact gaps in understanding that patients have after diagnosis — the things that don't get covered in a 10-minute appointment. Generic AI answers are generic. A well-crafted prompt gets you a specific, actionable answer.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Will I need insulin for Type 2 diabetes?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">Not necessarily at first. Type 2 is often managed initially with lifestyle changes and oral medications like Metformin. Whether insulin eventually becomes part of your treatment depends on how your body responds over time. Prompt 07 in this pack specifically helps you ask the right questions about your individual trajectory.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Is this a substitute for talking to my doctor?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">No, and it's not meant to be. These prompts are designed to help you understand your diagnosis better so that when you do talk to your doctor, you're asking better questions and understanding the answers. Think of it as preparation and education, not replacement. Prompt 03 is specifically designed to build your doctor appointment question list.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Which AI should I use these prompts with?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">These prompts work with ChatGPT (GPT-4 or better), Claude, and Gemini. We recommend ChatGPT or Claude for health topics as they tend to give the most detailed, nuanced responses. Always verify anything important with your healthcare provider.</div>
+      </div>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer">
+      <strong>Medical Disclaimer:</strong> The prompts on this page are educational tools designed to help you have better conversations with AI and with your healthcare providers. They do not constitute medical advice. Always consult your doctor or a qualified healthcare professional about your specific medical situation. Sarah Mitchell RN is providing health education, not clinical care.
+    </div>
+
+    <!-- RELATED CONDITIONS -->
+    <div class="related-section">
+      <div class="section-label">Related Conditions</div>
+      <h2>Other Patients Also Needed</h2>
+      <div class="related-grid">
+        <a href="/prompts/prediabetes" class="related-card">
+          <div>
+            <div class="related-card-text">Prediabetes</div>
+            <div class="related-card-sub">8 nurse-written prompts</div>
+          </div>
+          <svg class="related-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/prompts/hypertension" class="related-card">
+          <div>
+            <div class="related-card-text">Hypertension</div>
+            <div class="related-card-sub">10 nurse-written prompts</div>
+          </div>
+          <svg class="related-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/prompts/high-cholesterol" class="related-card">
+          <div>
+            <div class="related-card-text">High Cholesterol</div>
+            <div class="related-card-sub">9 nurse-written prompts</div>
+          </div>
+          <svg class="related-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/prompts/metabolic-syndrome" class="related-card">
+          <div>
+            <div class="related-card-text">Metabolic Syndrome</div>
+            <div class="related-card-sub">7 nurse-written prompts</div>
+          </div>
+          <svg class="related-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-cta">
+      <h3>Get Every Condition Pack</h3>
+      <p>500+ conditions. New packs every week. Full library access.</p>
+      <a href="/signup" class="btn-primary btn-full">Start for $17/month</a>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>What's Included</h3>
+      <ul class="sidebar-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          12 prompts per condition
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Clinical context for each prompt
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Doctor appointment prep guides
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          New packs added weekly
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Written by a registered nurse
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Cancel anytime
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>Related Situations</h3>
+      <a href="/prompts/understanding-lab-results" class="situation-link">Understanding Lab Results →</a>
+      <a href="/prompts/talking-to-your-doctor" class="situation-link">Talking to Your Doctor →</a>
+      <a href="/prompts/managing-chronic-illness" class="situation-link">Managing Chronic Illness →</a>
+      <a href="/prompts/medication-questions" class="situation-link">Medication Questions →</a>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>Free Tool</h3>
+      <p style="font-size:0.875rem; color:var(--ink-muted); margin-bottom:14px; line-height:1.6">Not sure which prompts you need? Our free generator builds a starter pack based on your diagnosis.</p>
+      <a href="/tools/prompt-generator" class="btn-primary btn-full" style="font-size:0.875rem; padding:10px 16px;">Try the Free Generator</a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Prompt<span>RN</span></div>
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/disclaimer">Medical Disclaimer</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div>© 2025 PromptRN · Written by nurses, for patients</div>
+  </div>
+</footer>
+
+<script>
+  // Copy prompt to clipboard
+  function copyPrompt(btn) {
+    const box = btn.parentElement;
+    const text = box.textContent.replace('Copy', '').replace('Copied!', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>

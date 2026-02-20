@@ -1,0 +1,86 @@
+{
+  "site_name": "PromptRN",
+  "site_url": "https://promptrn.com",
+  "site_description": "Nurse-written AI health prompts for patients",
+  "author_name": "Sarah Mitchell RN",
+  "conditions": [
+    {
+      "slug": "type-2-diabetes-diagnosis",
+      "condition_name": "Type 2 Diabetes",
+      "situation": "newly-diagnosed",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "hypertension-high-blood-pressure",
+      "condition_name": "Hypertension (High Blood Pressure)",
+      "situation": "newly-diagnosed",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "hypothyroidism",
+      "condition_name": "Hypothyroidism",
+      "situation": "newly-diagnosed",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "high-cholesterol",
+      "condition_name": "High Cholesterol",
+      "situation": "understanding-lab-results",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "prediabetes",
+      "condition_name": "Prediabetes",
+      "situation": "newly-diagnosed",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "atrial-fibrillation",
+      "condition_name": "Atrial Fibrillation",
+      "situation": "newly-diagnosed",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "gerd-acid-reflux",
+      "condition_name": "GERD / Acid Reflux",
+      "situation": "medication-questions",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "osteoarthritis",
+      "condition_name": "Osteoarthritis",
+      "situation": "managing-chronic-illness",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "anxiety-disorder-newly-diagnosed",
+      "condition_name": "Anxiety Disorder (Newly Diagnosed)",
+      "situation": "newly-diagnosed",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "slug": "asthma-adult-diagnosis",
+      "condition_name": "Asthma (Adult Diagnosis)",
+      "situation": "newly-diagnosed",
+      "prompt_count": 12,
+      "last_updated": "2026-02-20"
+    }
+  ],
+  "situations": [
+    "newly-diagnosed",
+    "understanding-lab-results",
+    "talking-to-your-doctor",
+    "managing-chronic-illness",
+    "medication-questions",
+    "preparing-for-surgery"
+  ]
+}

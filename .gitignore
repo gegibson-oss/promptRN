@@ -1,0 +1,15 @@
+.DS_Store
+
+# Local secrets / config
+.env
+.env.local
+.env.*.local
+
+# PHP deps
+vendor/
+
+# Node deps
+node_modules/
+
+# Logs
+*.log

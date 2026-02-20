@@ -1,0 +1,45 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{REQUEST_URI} !^/billing/webhook\.php$
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteRule ^(?:data|private|includes)(?:/|$) - [F,L]
+
+  RewriteRule ^about/?$ /about.php [L,QSA]
+
+  RewriteRule ^prompts/?$ /prompts/index.php [L,QSA]
+  RewriteRule ^prompts/([a-z0-9-]+)/?$ /prompts/template.php?slug=$1 [L,QSA]
+
+  RewriteRule ^situations/([a-z0-9-]+)/?$ /situations/template.php?slug=$1 [L,QSA]
+
+  RewriteRule ^tools/prompt-generator/?$ /tools/prompt-generator.php [L,QSA]
+
+  RewriteRule ^members/dashboard/?$ /members/dashboard.php [L,QSA]
+  RewriteRule ^members/library/?$ /members/library.php [L,QSA]
+  RewriteRule ^members/account/?$ /members/account.php [L,QSA]
+
+  RewriteRule ^auth/login/?$ /auth/login.php [L,QSA]
+  RewriteRule ^auth/register/?$ /auth/register.php [L,QSA]
+  RewriteRule ^auth/logout/?$ /auth/logout.php [L,QSA]
+  RewriteRule ^auth/forgot-password/?$ /auth/forgot-password.php [L,QSA]
+
+  RewriteRule ^billing/checkout/?$ /billing/checkout.php [L,QSA]
+  RewriteRule ^billing/success/?$ /billing/success.php [L,QSA]
+  RewriteRule ^billing/webhook/?$ /billing/webhook.php [L,QSA]
+
+  RewriteRule ^blog/?$ /blog/index.php [L,QSA]
+  RewriteRule ^blog/([a-z0-9-]+)/?$ /blog/template.php?slug=$1 [L,QSA]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options nosniff
+  Header always set X-Frame-Options DENY
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
