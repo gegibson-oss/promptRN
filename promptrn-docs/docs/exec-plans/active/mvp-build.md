@@ -33,6 +33,7 @@ Validate that patients will pay for nurse-written AI health prompts.
 - Completed in-repo MVP scope: templates, auth, Stripe checkout + webhook, gating, robots + sitemap, and public UI alignment to the mock spec.
 - Validated locally: PHP syntax checks pass; key pages render; Lighthouse local runs hit 100/100 for performance + SEO on homepage and a condition page.
 - Remaining blockers are deployment/external verification: HTTPS live on `promptrn.com`, Google indexing, live PageSpeed, and Rich Results validation.
+- Auto-deploy configured via Hostinger deploy webhook + GitHub push trigger.
 
 ## Design
 
