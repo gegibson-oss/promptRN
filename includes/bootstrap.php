@@ -8,7 +8,6 @@ if (defined('APP_BOOTSTRAPPED')) {
 define('APP_BOOTSTRAPPED', true);
 define('APP_ROOT', dirname(__DIR__));
 define('APP_DATA_DIR', APP_ROOT . '/data');
-define('APP_PRIVATE_DIR', APP_ROOT . '/private');
 define('APP_LOG_DIR', APP_ROOT . '/logs');
 
 if (!is_dir(APP_LOG_DIR)) {
@@ -115,11 +114,36 @@ function app_data_path(string $relativePath = ''): string
 
 function app_private_path(string $relativePath = ''): string
 {
+    $base = app_private_dir();
+
     if ($relativePath === '') {
-        return APP_PRIVATE_DIR;
+        return $base;
     }
 
-    return APP_PRIVATE_DIR . '/' . ltrim($relativePath, '/');
+    return $base . '/' . ltrim($relativePath, '/');
+}
+
+function app_private_dir(): string
+{
+    static $resolved = null;
+
+    if (is_string($resolved)) {
+        return $resolved;
+    }
+
+    $configured = app_env('APP_PRIVATE_DIR');
+    if ($configured !== null && trim($configured) !== '') {
+        $resolved = rtrim(trim($configured), '/');
+        return $resolved;
+    }
+
+    if (app_is_production()) {
+        $resolved = dirname(APP_ROOT) . '/private';
+        return $resolved;
+    }
+
+    $resolved = APP_ROOT . '/private';
+    return $resolved;
 }
 
 function app_log(string $message, string $logFile = 'app.log'): void

@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/bootstrap.php';
 
 $pageTitle = 'Forgot Password | PromptRN';
 $metaDescription = 'Password reset is intentionally deferred for MVP.';
-$canonicalUrl = app_url('/auth/forgot-password.php');
+$canonicalUrl = app_url('/auth/forgot-password');
 $robots = 'noindex, nofollow';
 
 require __DIR__ . '/../includes/header.php';

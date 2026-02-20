@@ -10,16 +10,29 @@ $robots = 'index, follow';
 
 require __DIR__ . '/includes/header.php';
 ?>
-<section>
+<section class="about-hero">
+    <span class="hero-badge">About PromptRN</span>
     <h1>About PromptRN</h1>
-    <p>PromptRN exists to close the gap between a short clinic visit and the real questions patients have once they get home.</p>
-    <p>Every prompt pack is written from a nursing perspective focused on patient understanding, safety, and practical follow-through.</p>
+    <p class="hero-lead">PromptRN exists to close the gap between a short clinic visit and the real questions patients still have once they get home.</p>
+    <p class="hero-lead">Every prompt pack is written from a nursing perspective focused on patient understanding, safety, and practical follow-through.</p>
 </section>
 
 <section>
-    <h2>Author</h2>
-    <p><strong>Sarah Mitchell RN</strong> is a Registered Nurse with 12 years of experience in endocrinology, chronic disease education, and primary care coordination.</p>
-    <p>Her work has centered on helping newly diagnosed patients understand medications, lab trends, symptom escalation, and behavior change in realistic daily routines.</p>
+    <h2>Author and Credentials</h2>
+    <div class="about-grid">
+        <article class="about-card">
+            <h3>Sarah Mitchell RN</h3>
+            <p>Registered Nurse with 12 years in endocrinology, chronic disease education, and primary care coordination.</p>
+        </article>
+        <article class="about-card">
+            <h3>Clinical Focus</h3>
+            <p>Helping newly diagnosed patients understand medications, labs, symptom escalation, and next-step decisions.</p>
+        </article>
+        <article class="about-card">
+            <h3>PromptRN Mission</h3>
+            <p>Make AI outputs safer and more useful for patients through clinically grounded prompt structure.</p>
+        </article>
+    </div>
 </section>
 
 <section>

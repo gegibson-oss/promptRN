@@ -23,6 +23,7 @@ Built Pieter Levels style: one person, PHP flat files, no framework, ship fast.
 - PHP + flat JSON files. No database until absolutely necessary.
 - SEO is infrastructure, not an afterthought.
 - Ship ugly. Validate fast. Polish what works.
+- Agent-first execution: implement directly without pausing for edit-by-edit confirmation. Pause only when blocked by missing or contradictory documentation.
 
 ## How Work Happens
 1. Select or create an execution plan in docs/exec-plans/active/

@@ -41,7 +41,7 @@ if (app_request_is_post()) {
             convertkit_subscribe_email($email);
             session_regenerate_id(true);
             $_SESSION['user_email'] = $email;
-            header('Location: /members/dashboard.php');
+            header('Location: /members/dashboard');
             exit;
         }
 
@@ -51,7 +51,7 @@ if (app_request_is_post()) {
 
 $pageTitle = 'Create Account | PromptRN';
 $metaDescription = 'Register for PromptRN to unlock nurse-written AI prompt packs.';
-$canonicalUrl = app_url('/auth/register.php');
+$canonicalUrl = app_url('/auth/register');
 $robots = 'noindex, nofollow';
 
 require __DIR__ . '/../includes/header.php';
@@ -61,7 +61,7 @@ require __DIR__ . '/../includes/header.php';
     <?php if ($error !== null): ?>
         <p class="alert"><?= app_h($error); ?></p>
     <?php endif; ?>
-    <form method="post" action="/auth/register.php">
+    <form method="post" action="/auth/register">
         <input type="hidden" name="csrf_token" value="<?= app_h(csrf_token()); ?>">
 
         <label for="email">Email</label>
@@ -72,6 +72,6 @@ require __DIR__ . '/../includes/header.php';
 
         <button type="submit">Create Account</button>
     </form>
-    <p>Already have an account? <a href="/auth/login.php">Sign in</a>.</p>
+    <p>Already have an account? <a href="/auth/login">Sign in</a>.</p>
 </section>
 <?php require __DIR__ . '/../includes/footer.php'; ?>

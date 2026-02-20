@@ -13,23 +13,31 @@ $robots = 'index, follow';
 
 require __DIR__ . '/../includes/header.php';
 ?>
-<section>
-    <h1>Browse Condition Prompt Packs</h1>
-    <p>Start with free nurse-written prompts and unlock full packs when you need deeper support.</p>
+<section class="prompts-hero">
+    <span class="hero-badge">Condition Library</span>
+    <h1>Browse Nurse-Written Condition Prompt Packs</h1>
+    <p class="hero-lead">Each condition page includes 3 free prompts plus a full locked prompt pack for deeper support.</p>
+</section>
 
+<section>
+    <div class="section-title-row">
+        <h2>All Conditions</h2>
+        <span class="meta-pill"><?= app_h((string) count($conditions)); ?> conditions</span>
+    </div>
     <?php if ($conditions === []): ?>
         <p>No conditions found in <code>/data/meta.json</code>.</p>
     <?php else: ?>
-        <ul class="card-list">
+        <ul class="condition-grid">
             <?php foreach ($conditions as $condition): ?>
                 <?php $slug = (string) ($condition['slug'] ?? ''); ?>
                 <li>
-                    <h2>
+                    <h3>
                         <a href="/prompts/<?= app_h($slug); ?>">
                             <?= app_h((string) ($condition['condition_name'] ?? $slug)); ?>
                         </a>
-                    </h2>
-                    <p>Last updated: <?= app_h((string) ($condition['last_updated'] ?? 'Unknown')); ?></p>
+                    </h3>
+                    <p class="card-meta"><?= app_h((string) ($condition['prompt_count'] ?? 12)); ?> prompts</p>
+                    <p class="card-meta">Last updated: <?= app_h((string) ($condition['last_updated'] ?? 'Unknown')); ?></p>
                 </li>
             <?php endforeach; ?>
         </ul>

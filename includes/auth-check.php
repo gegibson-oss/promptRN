@@ -36,7 +36,7 @@ function auth_current_user(): ?array
 function auth_redirect_to_login(): void
 {
     $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
-    $target = '/auth/login.php?redirect=' . urlencode($requestUri);
+    $target = '/auth/login?redirect=' . urlencode($requestUri);
     header('Location: ' . $target);
     exit;
 }
@@ -55,7 +55,7 @@ function auth_require_subscription(): array
 {
     $user = auth_require_login();
     if (!user_has_active_subscription($user)) {
-        header('Location: /billing/checkout.php?plan=monthly');
+        header('Location: /billing/checkout?plan=monthly');
         exit;
     }
 

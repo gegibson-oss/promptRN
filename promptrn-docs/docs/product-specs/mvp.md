@@ -21,13 +21,13 @@ That is it. Nothing else is MVP.
 ## MVP Scope
 
 ### Content
-- [ ] 10 condition pages (manually written, not yet programmatic)
-- [ ] Each page: 3 free prompts + 9 locked prompts with visible titles
-- [ ] Each prompt: the prompt text + "why this works" clinical explanation
-- [ ] Clinical context paragraph per condition (nurse-written, unique)
-- [ ] FAQ section (4-6 questions per condition, schema-marked)
-- [ ] Related conditions links (internal linking)
-- [ ] Author bio with RN credentials on every page
+- [x] 10 condition pages (manually written, not yet programmatic)
+- [x] Each page: 3 free prompts + 9 locked prompts with visible titles
+- [x] Each prompt: the prompt text + "why this works" clinical explanation
+- [x] Clinical context paragraph per condition (nurse-written, unique)
+- [x] FAQ section (4-6 questions per condition, schema-marked)
+- [x] Related conditions links (internal linking)
+- [x] Author bio with RN credentials on every page
 
 Starting conditions (highest search volume, clearest patient need):
 1. Type 2 Diabetes Diagnosis
@@ -42,45 +42,48 @@ Starting conditions (highest search volume, clearest patient need):
 10. Asthma (adult diagnosis)
 
 ### Pages
-- [ ] Homepage
-- [ ] /prompts index (browse all conditions)
-- [ ] /prompts/[condition] template (serves all 10 conditions)
-- [ ] /members/dashboard (post-login landing)
-- [ ] /members/library (full prompt access for subscribers)
-- [ ] /auth/login
-- [ ] /auth/register
-- [ ] /billing/checkout (redirect to Stripe)
-- [ ] /billing/webhook (Stripe event handler)
-- [ ] /billing/success
-- [ ] /about (nurse credentials, trust page)
-- [ ] sitemap.php
-- [ ] robots.txt
+- [x] Homepage
+- [x] /prompts index (browse all conditions)
+- [x] /prompts/[condition] template (serves all 10 conditions)
+- [x] /members/dashboard (post-login landing)
+- [x] /members/library (full prompt access for subscribers)
+- [x] /auth/login
+- [x] /auth/register
+- [x] /billing/checkout (redirect to Stripe)
+- [x] /billing/webhook (Stripe event handler)
+- [x] /billing/success
+- [x] /about (nurse credentials, trust page)
+- [x] sitemap.php
+- [x] robots.txt
+
+### UI Implementation Target
+- [x] Public-facing UI matches the required mock spec in docs/design-docs/mock-ui-spec.md
 
 ### Auth
-- [ ] Register with email + password
-- [ ] Login / logout
-- [ ] PHP session management
-- [ ] users.json stored outside web root
-- [ ] Subscription status field per user
+- [x] Register with email + password
+- [x] Login / logout
+- [x] PHP session management
+- [x] users.json stored outside web root
+- [x] Subscription status field per user
 
 ### Billing (Stripe)
-- [ ] One-time condition pack purchase ($9 default)
-- [ ] Monthly subscription ($17/month)
-- [ ] Annual subscription ($99/year)
-- [ ] Stripe webhook handling: payment_intent.succeeded, customer.subscription.created, customer.subscription.deleted
-- [ ] Access granted immediately on webhook receipt
-- [ ] Graceful handling of failed payments
+- [x] One-time condition pack purchase ($9 default)
+- [x] Monthly subscription ($17/month)
+- [x] Annual subscription ($99/year)
+- [x] Stripe webhook handling: payment_intent.succeeded, customer.subscription.created, customer.subscription.deleted
+- [x] Access granted immediately on webhook receipt
+- [x] Graceful handling of failed payments
 
 ### SEO (Required at MVP, Not Optional)
-- [ ] Unique title + meta description per condition (from JSON)
-- [ ] Canonical tags on all pages
-- [ ] MedicalWebPage schema on all condition pages
-- [ ] FAQPage schema on all condition pages
-- [ ] BreadcrumbList schema
-- [ ] Author schema with RN credentials
-- [ ] Auto-generated sitemap.php
-- [ ] robots.txt blocking /data, /private, /auth, /billing, /members
-- [ ] Clean URL rewrites via .htaccess
+- [x] Unique title + meta description per condition (from JSON)
+- [x] Canonical tags on all pages
+- [x] MedicalWebPage schema on all condition pages
+- [x] FAQPage schema on all condition pages
+- [x] BreadcrumbList schema
+- [x] Author schema with RN credentials
+- [x] Auto-generated sitemap.php
+- [x] robots.txt blocking /data, /private, /auth, /billing, /members
+- [x] Clean URL rewrites via .htaccess
 - [ ] All pages: PageSpeed ≥ 90 mobile
 
 ---

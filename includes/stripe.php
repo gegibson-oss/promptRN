@@ -160,8 +160,8 @@ function stripe_create_checkout_url(array $params): string
             'price' => $priceId,
             'quantity' => 1,
         ]],
-        'success_url' => app_url('/billing/success.php?session_id={CHECKOUT_SESSION_ID}'),
-        'cancel_url' => app_url('/billing/checkout.php?cancelled=1&plan=' . urlencode($plan)),
+        'success_url' => app_url('/billing/success?session_id={CHECKOUT_SESSION_ID}'),
+        'cancel_url' => app_url('/billing/checkout?cancelled=1&plan=' . urlencode($plan)),
     ];
 
     if ($plan === 'pack') {

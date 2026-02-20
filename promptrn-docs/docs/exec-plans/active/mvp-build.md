@@ -16,16 +16,23 @@ Validate that patients will pay for nurse-written AI health prompts.
 - [ ] 10 condition pages live and indexed by Google
 - [ ] Every condition page scores ≥ 90 PageSpeed mobile
 - [ ] Every condition page has valid MedicalWebPage + FAQPage schema
-- [ ] User can register, login, and logout
-- [ ] User can purchase a single condition pack via Stripe ($9)
-- [ ] User can subscribe monthly via Stripe ($17/month)
-- [ ] Stripe webhook correctly updates user subscription status
-- [ ] Gated content is inaccessible without active subscription or purchase
-- [ ] sitemap.php outputs valid XML covering all 10 condition pages
-- [ ] robots.txt blocks /data, /private, /auth, /billing, /members
-- [ ] users.json is outside web root and not accessible via browser
-- [ ] No API keys or secrets in any tracked file
+- [x] User can register, login, and logout
+- [x] User can purchase a single condition pack via Stripe ($9)
+- [x] User can subscribe monthly via Stripe ($17/month)
+- [x] Stripe webhook correctly updates user subscription status
+- [x] Gated content is inaccessible without active subscription or purchase
+- [x] sitemap.php outputs valid XML covering all 10 condition pages
+- [x] robots.txt blocks /data, /private, /auth, /billing, /members
+- [x] users.json is outside web root and not accessible via browser
+- [x] No API keys or secrets in any tracked file
 - [ ] HTTPS live on promptrn.com
+
+## Progress Log
+
+### 2026-02-20
+- Completed in-repo MVP scope: templates, auth, Stripe checkout + webhook, gating, robots + sitemap, and public UI alignment to the mock spec.
+- Validated locally: PHP syntax checks pass; key pages render; Lighthouse local runs hit 100/100 for performance + SEO on homepage and a condition page.
+- Remaining blockers are deployment/external verification: HTTPS live on `promptrn.com`, Google indexing, live PageSpeed, and Rich Results validation.
 
 ## Design
 

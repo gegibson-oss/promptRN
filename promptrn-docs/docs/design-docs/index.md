@@ -2,6 +2,7 @@
 
 - Core Beliefs: core-beliefs.md
 - Decisions Log: decisions-log.md
+- Mock UI Spec (Required Target): mock-ui-spec.md
 
 ## Summary
 PromptRN is built on the Pieter Levels philosophy: one person, boring technology,

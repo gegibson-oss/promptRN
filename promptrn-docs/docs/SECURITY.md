@@ -84,17 +84,17 @@ Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 
 ## Pre-Launch Security Checklist
 
-- [ ] .env is in .gitignore and not tracked
+- [x] .env is in .gitignore and not tracked
 - [ ] users.json is outside Apache web root
-- [ ] /data/ directory has .htaccess denying direct JSON access
-- [ ] All Stripe webhook calls verify signature
-- [ ] Login form has rate limiting active
-- [ ] All POST forms have CSRF tokens
+- [x] /data/ directory has .htaccess denying direct JSON access
+- [x] All Stripe webhook calls verify signature
+- [x] Login form has rate limiting active
+- [x] All POST forms have CSRF tokens
 - [ ] HTTPS is live and HTTP redirects to HTTPS
-- [ ] Security headers set in .htaccess
-- [ ] session_regenerate_id() called on login
-- [ ] Session cookies are HTTPOnly + Secure
-- [ ] Condition slug input validated against whitelist
+- [x] Security headers set in .htaccess
+- [x] session_regenerate_id() called on login
+- [x] Session cookies are HTTPOnly + Secure
+- [x] Condition slug input validated against whitelist
 - [ ] No error messages expose file paths or system info to users
-- [ ] PHP display_errors = Off in production
-- [ ] PHP log_errors = On, errors logged to file
+- [x] PHP display_errors = Off in production
+- [x] PHP log_errors = On, errors logged to file

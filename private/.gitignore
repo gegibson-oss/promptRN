@@ -1,0 +1,4 @@
+# Runtime files only; never commit real user/event data.
+*.json
+!.htaccess
+!README.md

@@ -7,10 +7,20 @@ function users_store_path(): string
 {
     $customPath = app_env('USERS_FILE_PATH');
     if ($customPath !== null && trim($customPath) !== '') {
-        return trim($customPath);
+        $path = trim($customPath);
+    } else {
+        $path = app_private_path('users.json');
     }
 
-    return app_private_path('users.json');
+    if (app_is_production()) {
+        $root = rtrim(str_replace('\\', '/', APP_ROOT), '/') . '/';
+        $normalizedPath = str_replace('\\', '/', $path);
+        if (str_starts_with($normalizedPath, $root)) {
+            throw new RuntimeException('users.json path must be outside web root in production.');
+        }
+    }
+
+    return $path;
 }
 
 function users_event_store_path(): string

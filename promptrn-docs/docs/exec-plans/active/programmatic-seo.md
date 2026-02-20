@@ -10,13 +10,20 @@ without sacrificing content quality or SEO uniqueness.
 - Any content that fails the "is this genuinely useful?" test
 
 ## Acceptance Criteria
-- [ ] Pipeline can generate a valid condition JSON from a CSV row + AI-assisted draft
+- [x] Pipeline can generate a valid condition JSON from a CSV row + AI-assisted draft
 - [ ] All generated pages pass the same SEO checklist as hand-crafted pages
 - [ ] Each page has a unique clinical_context paragraph (nurse-reviewed, not templated)
-- [ ] Internal linking auto-populates from related_conditions array
-- [ ] sitemap.php automatically includes all new pages
+- [x] Internal linking auto-populates from related_conditions array
+- [x] sitemap.php automatically includes all new pages
 - [ ] No two condition pages could be mistaken for each other with slug removed
 - [ ] Google does not manual-action or sandbox the new pages (monitor Search Console)
+
+## Progress Log
+
+### 2026-02-20
+- CSV -> JSON import script validates required fields, word count, and uniqueness thresholds.
+- Verified with a generated one-row CSV dry-run: import validation passes end-to-end.
+- Remaining work is process + external validation (nurse review workflow, Search Console monitoring, and uniqueness QA at scale).
 
 ## Design
 

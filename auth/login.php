@@ -51,11 +51,11 @@ function login_record_attempt(string $key): void
 
 $error = null;
 $email = strtolower(trim((string) ($_POST['email'] ?? '')));
-$redirect = (string) ($_GET['redirect'] ?? '/members/dashboard.php');
+$redirect = (string) ($_GET['redirect'] ?? '/members/dashboard');
 
 if (app_request_is_post()) {
     $ipKey = login_attempts_key();
-    $redirect = (string) ($_POST['redirect'] ?? '/members/dashboard.php');
+    $redirect = (string) ($_POST['redirect'] ?? '/members/dashboard');
 
     if (!csrf_validate($_POST['csrf_token'] ?? null)) {
         $error = 'Security token invalid. Refresh and try again.';
@@ -76,7 +76,7 @@ if (app_request_is_post()) {
             $_SESSION['user_email'] = $email;
 
             if ($redirect === '' || str_starts_with($redirect, 'http')) {
-                $redirect = '/members/dashboard.php';
+                $redirect = '/members/dashboard';
             }
 
             header('Location: ' . $redirect);
@@ -87,7 +87,7 @@ if (app_request_is_post()) {
 
 $pageTitle = 'Login | PromptRN';
 $metaDescription = 'Sign in to your PromptRN account.';
-$canonicalUrl = app_url('/auth/login.php');
+$canonicalUrl = app_url('/auth/login');
 $robots = 'noindex, nofollow';
 
 require __DIR__ . '/../includes/header.php';
@@ -98,7 +98,7 @@ require __DIR__ . '/../includes/header.php';
         <p class="alert"><?= app_h($error); ?></p>
     <?php endif; ?>
 
-    <form method="post" action="/auth/login.php">
+    <form method="post" action="/auth/login">
         <input type="hidden" name="csrf_token" value="<?= app_h(csrf_token()); ?>">
         <input type="hidden" name="redirect" value="<?= app_h($redirect); ?>">
 
@@ -111,6 +111,6 @@ require __DIR__ . '/../includes/header.php';
         <button type="submit">Sign In</button>
     </form>
 
-    <p><a href="/auth/forgot-password.php">Forgot your password?</a></p>
+    <p><a href="/auth/forgot-password">Forgot your password?</a></p>
 </section>
 <?php require __DIR__ . '/../includes/footer.php'; ?>

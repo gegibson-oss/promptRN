@@ -30,14 +30,14 @@ try {
 
     $pageTitle = 'Checkout Error | PromptRN';
     $metaDescription = 'We could not start checkout. Please try again.';
-    $canonicalUrl = app_url('/billing/checkout.php');
+    $canonicalUrl = app_url('/billing/checkout');
     $robots = 'noindex, nofollow';
     require __DIR__ . '/../includes/header.php';
     ?>
     <section>
         <h1>Unable to Start Checkout</h1>
         <p>There was a billing setup issue. Please try again in a moment.</p>
-        <p><a class="button" href="/members/account.php">Back to account</a></p>
+        <p><a class="button" href="/members/account">Back to account</a></p>
     </section>
     <?php
     require __DIR__ . '/../includes/footer.php';

@@ -18,7 +18,7 @@ if ($sessionId !== '') {
 
 $pageTitle = 'Payment Success | PromptRN';
 $metaDescription = 'Your PromptRN purchase was successful.';
-$canonicalUrl = app_url('/billing/success.php');
+$canonicalUrl = app_url('/billing/success');
 $robots = 'noindex, nofollow';
 
 require __DIR__ . '/../includes/header.php';
@@ -29,7 +29,7 @@ require __DIR__ . '/../includes/header.php';
     <?php if ($slug !== ''): ?>
         <p><a class="button" href="/prompts/<?= app_h($slug); ?>">Open your condition pack</a></p>
     <?php else: ?>
-        <p><a class="button" href="/members/library.php">Open your library</a></p>
+        <p><a class="button" href="/members/library">Open your library</a></p>
     <?php endif; ?>
 </section>
 <?php require __DIR__ . '/../includes/footer.php'; ?>

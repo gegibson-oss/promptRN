@@ -7,7 +7,7 @@ $user = auth_require_login();
 
 $pageTitle = 'Account Settings | PromptRN';
 $metaDescription = 'Manage your PromptRN account and billing details.';
-$canonicalUrl = app_url('/members/account.php');
+$canonicalUrl = app_url('/members/account');
 $robots = 'noindex, nofollow';
 
 require __DIR__ . '/../includes/header.php';
@@ -17,6 +17,7 @@ require __DIR__ . '/../includes/header.php';
     <p>Email: <?= app_h((string) ($user['email'] ?? '')); ?></p>
     <p>Plan: <?= app_h((string) ($user['subscription_plan'] ?? 'none')); ?></p>
     <p>Status: <?= app_h((string) ($user['subscription_status'] ?? 'free')); ?></p>
-    <p><a href="/billing/checkout.php?plan=monthly">Upgrade Plan</a></p>
+    <p><a class="button" href="/billing/checkout?plan=monthly">Upgrade to Monthly ($17)</a></p>
+    <p><a class="button secondary" href="/billing/checkout?plan=annual">Upgrade to Annual ($99)</a></p>
 </section>
 <?php require __DIR__ . '/../includes/footer.php'; ?>

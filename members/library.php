@@ -8,7 +8,7 @@ $meta = app_read_json_file(app_data_path('meta.json'));
 
 $pageTitle = 'Prompt Library | PromptRN';
 $metaDescription = 'Full member library of nurse-written condition prompts.';
-$canonicalUrl = app_url('/members/library.php');
+$canonicalUrl = app_url('/members/library');
 $robots = 'noindex, nofollow';
 
 require __DIR__ . '/../includes/header.php';
