@@ -18,7 +18,7 @@ $iconForSituation = static function (string $situation): string {
     return match ($situation) {
         'newly-diagnosed' => 'diagnosis',
         'understanding-lab-results' => 'science',
-        'talking-to-your-doctor' => 'chat',
+        'talking-to-your-doctor' => 'stethoscope',
         'managing-chronic-illness' => 'monitor_heart',
         'medication-questions' => 'pill',
         default => 'medical_services',
@@ -50,22 +50,22 @@ $robots = 'index, follow';
 
 require __DIR__ . '/includes/header.php';
 ?>
-<section class="homepage-hero">
-    <div class="layout-container hero-inner">
+<section class="mock-hero">
+    <div class="mock-container center">
         <div class="hero-pill">
             <span class="material-symbols-outlined" aria-hidden="true">verified</span>
             Verified by Registered Nurses
         </div>
         <h1>Expert AI Prompts for your Health, <em>Written by Nurses.</em></h1>
         <p class="hero-copy">Bridge the gap between your doctor visit and your daily life with clinically-vetted prompts for ChatGPT.</p>
-        <div class="hero-actions">
+        <div class="hero-cta-row">
             <a class="btn-primary" href="/prompts">Browse <?= app_h((string) $conditionCount); ?> Conditions</a>
             <a class="btn-secondary" href="/tools/prompt-generator">See Free Tools</a>
         </div>
-        <div class="hero-stats">
+        <div class="hero-stat-row">
             <div class="hero-stat">
                 <strong><?= app_h((string) max($totalPrompts, 1)); ?>+</strong>
-                <span>Prompts Copied</span>
+                <span>Prompts Live</span>
             </div>
             <div class="hero-stat">
                 <strong>4.9</strong>
@@ -79,35 +79,35 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="homepage-value">
-    <div class="layout-container section-intro">
+<section class="mock-value-prop">
+    <div class="mock-container center narrow">
         <h2>Most patients leave their appointments with more questions than answers.</h2>
         <p>Healthcare is complex. We simplify it so you can take control.</p>
     </div>
-    <div class="layout-container">
+    <div class="mock-container">
         <div class="value-grid">
             <article class="value-card">
                 <div class="value-icon teal"><span class="material-symbols-outlined" aria-hidden="true">medical_services</span></div>
                 <h3>Clinically Vetted</h3>
-                <p>Every prompt is written and reviewed by registered nurses with clinical experience in that field.</p>
+                <p>Every prompt is written and reviewed by registered nurses with clinical experience.</p>
             </article>
             <article class="value-card">
                 <div class="value-icon amber"><span class="material-symbols-outlined" aria-hidden="true">translate</span></div>
                 <h3>Plain English</h3>
-                <p>We translate complex medical language into clear, practical guidance you can actually use.</p>
+                <p>We translate medical language into clear guidance you can actually use.</p>
             </article>
             <article class="value-card">
                 <div class="value-icon teal"><span class="material-symbols-outlined" aria-hidden="true">accessibility_new</span></div>
                 <h3>Patient Centered</h3>
-                <p>Built around daily challenges and the exact questions doctors often do not have time to cover.</p>
+                <p>Built around daily challenges and the exact questions doctors do not always have time to cover.</p>
             </article>
         </div>
     </div>
 </section>
 
-<section class="homepage-how">
-    <div class="layout-container">
-        <div class="section-heading-center">
+<section class="mock-how-it-works">
+    <div class="mock-container">
+        <div class="section-heading center">
             <div class="section-kicker">Simple Process</div>
             <h2>How It Works</h2>
         </div>
@@ -125,14 +125,14 @@ require __DIR__ . '/includes/header.php';
             <article class="step-card">
                 <div class="step-circle">3</div>
                 <h3>Get real answers</h3>
-                <p>Paste into ChatGPT for clear, actionable guidance.</p>
+                <p>Paste in ChatGPT for clear, actionable guidance.</p>
             </article>
         </div>
     </div>
 </section>
 
-<section class="homepage-categories" id="categories">
-    <div class="layout-container">
+<section class="mock-featured" id="categories">
+    <div class="mock-container">
         <div class="section-row">
             <div>
                 <div class="section-kicker muted">Library</div>
@@ -168,11 +168,11 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="homepage-cta">
-    <div class="layout-container">
+<section class="mock-cta">
+    <div class="mock-container">
         <div class="cta-panel">
             <h2>Unlock better health conversations.</h2>
-            <p>Get full access to every condition pack, nurse notes, and priority updates for one simple monthly price.</p>
+            <p>Get full access to every condition pack, nurse notes, and priority updates.</p>
             <div class="cta-actions">
                 <a class="btn-primary" href="/billing/checkout?plan=monthly">Get Full Access - $17/month</a>
                 <span>Cancel anytime</span>
