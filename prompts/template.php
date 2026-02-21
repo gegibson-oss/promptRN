@@ -61,6 +61,7 @@ $formatSituation = static function (string $value): string {
     if ($value === '') {
         return 'Condition Pack';
     }
+
     return ucwords(str_replace('-', ' ', $value));
 };
 
@@ -69,16 +70,19 @@ $initials = static function (string $name): string {
     if (!is_array($parts) || $parts === []) {
         return 'RN';
     }
+
     $letters = '';
     foreach ($parts as $part) {
         if ($part === '') {
             continue;
         }
+
         $letters .= strtoupper(substr($part, 0, 1));
         if (strlen($letters) >= 2) {
             break;
         }
     }
+
     return $letters !== '' ? $letters : 'RN';
 };
 
@@ -96,9 +100,9 @@ $robots = 'index, follow';
 
 require __DIR__ . '/../includes/header.php';
 ?>
-<section class="condition-top-shell">
-    <div class="mock-container">
-        <nav class="crumb-row" aria-label="Breadcrumb">
+<section class="condition-hero-wrap">
+    <div class="layout-container">
+        <nav class="breadcrumb-row" aria-label="Breadcrumb">
             <a href="/">Home</a>
             <span>/</span>
             <a href="/prompts">Conditions</a>
@@ -112,15 +116,16 @@ require __DIR__ . '/../includes/header.php';
             </div>
         <?php endif; ?>
 
-        <div class="condition-hero-outer">
-            <div class="condition-hero-main-col">
+        <div class="condition-hero-grid">
+            <div class="condition-hero-main">
                 <div class="hero-pill">
                     <span class="material-symbols-outlined" aria-hidden="true">medical_services</span>
                     <?= app_h($formatSituation($situation)); ?>
                 </div>
                 <h1>AI Prompts to Help You Understand Your <em><?= app_h($conditionName); ?></em> Diagnosis</h1>
                 <p class="hero-copy"><?= app_h($clinicalContext); ?></p>
-                <div class="hero-stat-row left">
+
+                <div class="condition-hero-stats">
                     <div class="hero-stat">
                         <strong><?= app_h((string) $totalPrompts); ?></strong>
                         <span>Nurse-written prompts</span>
@@ -137,19 +142,19 @@ require __DIR__ . '/../includes/header.php';
                 <p class="updated-note">Updated <?= app_h($lastUpdated); ?></p>
             </div>
 
-            <aside class="rn-card">
-                <div class="rn-head">
-                    <span class="rn-initials"><?= app_h($initials($authorName)); ?></span>
+            <aside class="author-card">
+                <div class="author-header">
+                    <span class="author-avatar"><?= app_h($initials($authorName)); ?></span>
                     <div>
                         <h3><?= app_h($authorName); ?></h3>
                         <p><?= app_h($authorCredentials); ?></p>
                     </div>
                 </div>
-                <p class="rn-quote">"I wrote these prompts because patients leave diagnosis visits overwhelmed and without the information they need."</p>
+                <p class="author-quote">"I wrote these prompts because patients leave diagnosis visits overwhelmed and without the information they need."</p>
                 <?php if ($authorExperience !== ''): ?>
-                    <p class="rn-exp"><?= app_h($authorExperience); ?></p>
+                    <p class="author-experience"><?= app_h($authorExperience); ?></p>
                 <?php endif; ?>
-                <p class="rn-verified">
+                <p class="author-verified">
                     <span class="material-symbols-outlined" aria-hidden="true">verified</span>
                     RN License Verified
                 </p>
@@ -158,12 +163,15 @@ require __DIR__ . '/../includes/header.php';
     </div>
 </section>
 
-<section class="condition-main-shell">
-    <div class="mock-container condition-main-grid">
-        <div class="condition-main-col">
+<section class="condition-content-wrap">
+    <div class="layout-container condition-layout">
+        <div class="condition-main-column">
             <?php if ($patientFears !== []): ?>
-                <article class="nurse-note">
-                    <div class="nurse-note-kicker"><span class="material-symbols-outlined" aria-hidden="true">stethoscope</span> A Nurse's Note</div>
+                <article class="nurse-note-card">
+                    <div class="nurse-note-title">
+                        <span class="material-symbols-outlined" aria-hidden="true">stethoscope</span>
+                        A Nurse's Note
+                    </div>
                     <p>The most important thing to know: this diagnosis is manageable when you get clear explanations and practical next steps. These prompts are built to give you those explanations in plain language and at your own pace.</p>
                     <ul>
                         <?php foreach (array_slice($patientFears, 0, 4) as $fear): ?>
@@ -173,7 +181,7 @@ require __DIR__ . '/../includes/header.php';
                 </article>
             <?php endif; ?>
 
-            <article class="prompt-block">
+            <article class="prompts-section">
                 <div class="section-kicker">Start Here - Free Prompts</div>
                 <h2><?= app_h((string) count($freePrompts)); ?> Prompts to Try Right Now</h2>
 
@@ -184,24 +192,24 @@ require __DIR__ . '/../includes/header.php';
                     $why = (string) ($prompt['why_it_works'] ?? '');
                     $position = $index + 1;
                     ?>
-                    <div class="prompt-item" data-prompt-card>
-                        <div class="prompt-item-index">Prompt <?= app_h(str_pad((string) $position, 2, '0', STR_PAD_LEFT)); ?> of <?= app_h((string) $totalPrompts); ?></div>
+                    <article class="condition-prompt-card" data-prompt-card>
+                        <div class="prompt-label">Prompt <?= app_h(str_pad((string) $position, 2, '0', STR_PAD_LEFT)); ?> of <?= app_h((string) $totalPrompts); ?></div>
                         <h3><?= app_h($promptTitle); ?></h3>
-                        <div class="prompt-text" data-prompt-wrap>
-                            <button class="prompt-copy" type="button" data-copy-prompt>Copy</button>
+                        <div class="prompt-body-box">
+                            <button class="copy-prompt-button" type="button" data-copy-prompt>Copy</button>
                             <p data-prompt-body><?= nl2br(app_h($promptBody)); ?></p>
                         </div>
                         <?php if ($why !== ''): ?>
-                            <div class="why-wrap">
+                            <div class="prompt-reason">
                                 <h4>Why this works</h4>
                                 <p><?= app_h($why); ?></p>
                             </div>
                         <?php endif; ?>
-                    </div>
+                    </article>
                 <?php endforeach; ?>
             </article>
 
-            <article class="prompt-block locked">
+            <article class="prompts-section">
                 <div class="section-kicker">Full Prompt Pack</div>
                 <h2><?= app_h((string) count($paidPrompts)); ?> More Nurse-Written Prompts</h2>
 
@@ -213,30 +221,32 @@ require __DIR__ . '/../includes/header.php';
                         $why = (string) ($prompt['why_it_works'] ?? '');
                         $position = count($freePrompts) + $index + 1;
                         ?>
-                        <div class="prompt-item" data-prompt-card>
-                            <div class="prompt-item-index">Prompt <?= app_h(str_pad((string) $position, 2, '0', STR_PAD_LEFT)); ?> of <?= app_h((string) $totalPrompts); ?></div>
+                        <article class="condition-prompt-card" data-prompt-card>
+                            <div class="prompt-label">Prompt <?= app_h(str_pad((string) $position, 2, '0', STR_PAD_LEFT)); ?> of <?= app_h((string) $totalPrompts); ?></div>
                             <h3><?= app_h($promptTitle); ?></h3>
-                            <div class="prompt-text" data-prompt-wrap>
-                                <button class="prompt-copy" type="button" data-copy-prompt>Copy</button>
+                            <div class="prompt-body-box">
+                                <button class="copy-prompt-button" type="button" data-copy-prompt>Copy</button>
                                 <p data-prompt-body><?= nl2br(app_h($promptBody)); ?></p>
                             </div>
                             <?php if ($why !== ''): ?>
-                                <div class="why-wrap">
+                                <div class="prompt-reason">
                                     <h4>Why this works</h4>
                                     <p><?= app_h($why); ?></p>
                                 </div>
                             <?php endif; ?>
-                        </div>
+                        </article>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <div class="locked-list-box">
-                        <?php foreach ($paidPrompts as $index => $prompt): ?>
-                            <div class="locked-row">
-                                <p><span class="material-symbols-outlined" aria-hidden="true">lock</span><?= app_h((string) ($prompt['title'] ?? 'Locked prompt')); ?></p>
-                                <span>Prompt <?= app_h(str_pad((string) (count($freePrompts) + $index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
-                            </div>
-                        <?php endforeach; ?>
-                        <div class="locked-overlay-box">
+                    <div class="locked-pack">
+                        <div class="locked-pack-list">
+                            <?php foreach ($paidPrompts as $index => $prompt): ?>
+                                <div class="locked-pack-row">
+                                    <p><span class="material-symbols-outlined" aria-hidden="true">lock</span><?= app_h((string) ($prompt['title'] ?? 'Locked prompt')); ?></p>
+                                    <span>Prompt <?= app_h(str_pad((string) (count($freePrompts) + $index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="locked-pack-overlay">
                             <p>Get this specific pack instantly, or unlock every condition on the site.</p>
                             <a class="btn-primary" href="/billing/checkout?plan=pack&amp;slug=<?= app_h($slug); ?>">Unlock All <?= app_h((string) $totalPrompts); ?> Prompts - $9</a>
                             <small>Or get everything for $17/month</small>
@@ -246,7 +256,7 @@ require __DIR__ . '/../includes/header.php';
             </article>
 
             <?php if ($faqs !== []): ?>
-                <article class="faq-block">
+                <article class="faq-section-card">
                     <div class="section-kicker">Common Questions</div>
                     <h2>What Patients Ask Us</h2>
                     <div class="faq-list">
@@ -269,13 +279,13 @@ require __DIR__ . '/../includes/header.php';
                 </article>
             <?php endif; ?>
 
-            <article class="disclaimer-box">
+            <article class="medical-disclaimer">
                 <p><strong>Medical Disclaimer:</strong> The prompts on this page are educational tools designed to help you have better conversations with AI and healthcare professionals. They do not replace medical advice from licensed clinicians.</p>
             </article>
         </div>
 
-        <aside class="condition-side-col">
-            <article class="side-cta">
+        <aside class="condition-sidebar-column">
+            <article class="sidebar-cta-card">
                 <h3><?= $hasFullAccess ? 'You have this pack unlocked' : 'Get Every Condition Pack'; ?></h3>
                 <?php if ($hasFullAccess): ?>
                     <p>You already have access to this full pack and can copy any prompt.</p>
@@ -286,7 +296,7 @@ require __DIR__ . '/../includes/header.php';
                 <?php endif; ?>
             </article>
 
-            <article class="side-card">
+            <article class="sidebar-card">
                 <h3>What's Included</h3>
                 <ul>
                     <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span><?= app_h((string) $totalPrompts); ?> prompts per condition</li>
@@ -298,9 +308,9 @@ require __DIR__ . '/../includes/header.php';
             </article>
 
             <?php if ($relatedSituations !== []): ?>
-                <article class="side-card">
+                <article class="sidebar-card">
                     <h3>Related Situations</h3>
-                    <div class="side-links">
+                    <div class="sidebar-links">
                         <?php foreach ($relatedSituations as $relatedSituation): ?>
                             <a href="/prompts">
                                 <?= app_h($formatSituation((string) $relatedSituation)); ?>

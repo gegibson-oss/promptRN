@@ -43,14 +43,14 @@ $robots = 'index, follow';
 require __DIR__ . '/../includes/header.php';
 ?>
 <section class="library-hero">
-    <div class="mock-container center">
+    <div class="layout-container hero-inner">
         <div class="hero-pill">
             <span class="material-symbols-outlined" aria-hidden="true">library_books</span>
             Condition Library
         </div>
         <h1>Browse Nurse-Written Condition Prompt Packs</h1>
         <p class="hero-copy">Each page includes free prompts to try now and a complete condition pack for deeper support.</p>
-        <div class="hero-stat-row compact">
+        <div class="hero-stats compact">
             <div class="hero-stat">
                 <strong><?= app_h((string) count($conditions)); ?></strong>
                 <span>Conditions</span>
@@ -67,11 +67,18 @@ require __DIR__ . '/../includes/header.php';
     </div>
 </section>
 
-<section class="library-grid-shell">
-    <div class="mock-container">
+<section class="library-listing">
+    <div class="layout-container">
         <?php if ($conditions === []): ?>
             <p>No condition content has been added yet.</p>
         <?php else: ?>
+            <div class="section-row">
+                <div>
+                    <div class="section-kicker muted">Library</div>
+                    <h2>All Conditions</h2>
+                </div>
+                <span class="collection-total"><?= app_h((string) count($conditions)); ?> condition packs</span>
+            </div>
             <div class="featured-grid">
                 <?php foreach ($conditions as $condition): ?>
                     <?php
