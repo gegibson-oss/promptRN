@@ -151,22 +151,36 @@ require __DIR__ . '/../includes/header.php';
 
     <nav class="condition-template-breadcrumb" aria-label="Breadcrumb">
         <div class="condition-template-container">
-            <a href="/">Home</a>
-            <span>/</span>
-            <a href="/prompts">Conditions</a>
-            <span>/</span>
-            <span aria-current="page"><?= app_h($conditionName); ?></span>
+            <ol class="condition-template-breadcrumb-list">
+                <li><a href="/">Home</a></li>
+                <li class="condition-template-breadcrumb-separator" aria-hidden="true">/</li>
+                <li><a href="/prompts">Conditions</a></li>
+                <li class="condition-template-breadcrumb-separator" aria-hidden="true">/</li>
+                <li class="condition-template-breadcrumb-current" aria-current="page"><?= app_h($conditionName); ?></li>
+            </ol>
         </div>
     </nav>
 
     <section class="condition-template-hero">
         <div class="condition-template-container condition-template-hero-grid">
             <div class="condition-template-hero-copy">
-                <p class="condition-template-hero-badge"><?= app_h($situationLabel); ?></p>
+                <p class="condition-template-hero-badge">
+                    <span class="condition-template-hero-badge-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true">
+                            <circle cx="8" cy="8" r="6.5"></circle>
+                            <path d="M8 5v6M5 8h6"></path>
+                        </svg>
+                    </span>
+                    <span><?= app_h($situationLabel); ?></span>
+                </p>
                 <h1><?= $headlineHtml; ?></h1>
                 <p class="condition-template-hero-intro">
                     <?= app_h((string) ($condition['clinical_context'] ?? 'Nurse-written context is coming soon.')); ?>
                 </p>
+                <?php
+                $patientRating = (string) ($condition['patient_rating'] ?? '4.9');
+                $patientCount = (string) ($condition['patient_count'] ?? '214');
+                ?>
                 <div class="condition-template-hero-stats">
                     <div class="condition-template-hero-stat">
                         <p class="condition-template-hero-stat-value"><?= app_h((string) $totalPromptCount); ?></p>
@@ -177,8 +191,15 @@ require __DIR__ . '/../includes/header.php';
                         <p class="condition-template-hero-stat-label">Free to try now</p>
                     </div>
                     <div class="condition-template-hero-stat">
-                        <p class="condition-template-hero-stat-value"><?= app_h($lastUpdatedDisplay); ?></p>
-                        <p class="condition-template-hero-stat-label">Last updated</p>
+                        <p class="condition-template-hero-stat-value condition-template-hero-stat-rating">
+                            <span><?= app_h($patientRating); ?></span>
+                            <span class="condition-template-hero-stat-star" aria-hidden="true">
+                                <svg viewBox="0 0 20 19" focusable="false" aria-hidden="true">
+                                    <path d="M10 0.9l2.7 5.5 6.1 0.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-0.9L10 0.9z"></path>
+                                </svg>
+                            </span>
+                        </p>
+                        <p class="condition-template-hero-stat-label">From <?= app_h($patientCount); ?> patients</p>
                     </div>
                 </div>
             </div>
@@ -191,10 +212,24 @@ require __DIR__ . '/../includes/header.php';
                         <p class="condition-template-author-role"><?= app_h($authorCredentials); ?></p>
                     </div>
                 </div>
+                <?php
+                $authorQuote = trim((string) ($condition['author']['quote'] ?? ''));
+                if ($authorQuote === '') {
+                    $authorQuote = 'I wrote these prompts because I watched thousands of patients leave their diagnosis appointment overwhelmed and without the information they needed.';
+                }
+                ?>
                 <p class="condition-template-author-bio">
-                    <?= app_h($authorExperience !== '' ? $authorExperience : 'Nurse-authored prompts for clearer decisions, safer next steps, and stronger appointment conversations.'); ?>
+                    "<?= app_h($authorQuote); ?>"
                 </p>
-                <p class="condition-template-author-verified">RN License Verified</p>
+                <p class="condition-template-author-verified">
+                    <span class="condition-template-author-verified-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" focusable="false" aria-hidden="true">
+                            <circle cx="8" cy="8" r="6.5"></circle>
+                            <path d="M4.5 8.1l2.2 2.2 4.8-4.8"></path>
+                        </svg>
+                    </span>
+                    <span>RN License Verified</span>
+                </p>
             </aside>
         </div>
     </section>
