@@ -68,189 +68,153 @@ $featuredCategories = [
 
 require __DIR__ . '/includes/header.php';
 ?>
-<article class="home-template">
-    <header class="home-template-header">
-        <div class="home-template-container home-template-nav-inner">
-            <a class="home-template-logo" href="/">Prompt<span>RN</span></a>
-            <nav class="home-template-nav-links" aria-label="Main">
-                <a href="/prompts">Browse Conditions</a>
-                <a href="/tools/prompt-generator">Free Tools</a>
-                <a href="/about">About</a>
-                <a class="home-template-nav-cta" href="/auth/register">Get Full Access</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="home-template-main" role="main">
-        <section class="home-template-hero" aria-labelledby="home-template-hero-title">
-            <div class="home-template-hero-texture" aria-hidden="true"></div>
-            <div class="home-template-container home-template-hero-inner">
-                <p class="home-template-badge">
-                    <span class="material-symbols-outlined" aria-hidden="true">verified</span>
-                    Verified by Registered Nurses
+<section class="relative bg-[var(--warm-white)] border-b border-[var(--border)] pt-20 pb-24 px-6 overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/clean-gray-paper.png')] opacity-20 pointer-events-none"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<div class="inline-flex items-center gap-2 bg-[var(--teal-light)] text-[var(--teal-dark)] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-8">
+<span class="material-symbols-outlined text-base">verified</span>
+                Verified by Registered Nurses
+            </div>
+<h1 class="text-5xl md:text-6xl lg:text-[4rem] font-serif font-bold leading-[1.1] text-[var(--ink)] mb-8 tracking-tight">
+                Expert AI Prompts for your Health, <span class="italic text-[var(--amber)]">Written by Nurses.</span>
+</h1>
+<p class="text-xl md:text-2xl text-[var(--ink-light)] leading-relaxed max-w-2xl mx-auto mb-12">
+                Bridge the gap between your doctor’s visit and your daily life with clinically-vetted prompts for ChatGPT.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="btn-primary w-full sm:w-auto" href="#categories">Browse 500+ Conditions</a>
+<a class="btn-secondary w-full sm:w-auto" href="/tools/prompt-generator">See Free Tools</a>
+</div>
+<div class="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 border-t border-[var(--border)] pt-8 max-w-3xl mx-auto">
+<div class="flex flex-col items-center">
+<span class="font-serif font-bold text-3xl text-[var(--ink)]">10k+</span>
+<span class="text-sm text-[var(--ink-muted)] font-medium mt-1">Prompts Copied</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-1">
+<span class="font-serif font-bold text-3xl text-[var(--ink)]">4.9</span>
+<span class="material-symbols-outlined text-[var(--amber)] text-2xl fill-current">star</span>
+</div>
+<span class="text-sm text-[var(--ink-muted)] font-medium mt-1">Patient Rating</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-serif font-bold text-3xl text-[var(--ink)]">100%</span>
+<span class="text-sm text-[var(--ink-muted)] font-medium mt-1">Verified RN Authors</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-[var(--cream)]">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-serif text-3xl md:text-4xl font-bold text-[var(--ink)] mb-6">
+                    Most patients leave their appointments with more questions than answers.
+                </h2>
+<p class="text-lg text-[var(--ink-light)]">
+                    Healthcare is complex. We simplify it so you can take control.
                 </p>
-                <h1 id="home-template-hero-title">
-                    Expert AI Prompts for your Health,
-                    <em>Written by Nurses.</em>
-                </h1>
-                <p class="home-template-hero-lead">
-                    Bridge the gap between your doctor's visit and your daily life with clinically-vetted prompts for ChatGPT.
-                </p>
-                <div class="home-template-hero-actions">
-                    <a class="home-template-btn home-template-btn-primary" href="/prompts">Browse 500+ Conditions</a>
-                    <a class="home-template-btn home-template-btn-secondary" href="/tools/prompt-generator">See Free Tools</a>
-                </div>
-                <div class="home-template-hero-stats">
-                    <div class="home-template-hero-stat">
-                        <p class="home-template-hero-stat-value">10k+</p>
-                        <p class="home-template-hero-stat-label">Prompts Copied</p>
-                    </div>
-                    <div class="home-template-hero-stat">
-                        <p class="home-template-hero-stat-value home-template-hero-stat-rating">
-                            <span>4.9</span>
-                            <span class="material-symbols-outlined home-template-star" aria-hidden="true">star</span>
-                        </p>
-                        <p class="home-template-hero-stat-label">Patient Rating</p>
-                    </div>
-                    <div class="home-template-hero-stat">
-                        <p class="home-template-hero-stat-value">100%</p>
-                        <p class="home-template-hero-stat-label">Verified RN Authors</p>
-                    </div>
-                </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-[var(--warm-white)] p-8 rounded-2xl border border-[var(--border)] shadow-sm">
+<div class="w-12 h-12 bg-[var(--teal-light)] rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[var(--teal-dark)] text-2xl">medical_services</span>
+</div>
+<h3 class="font-serif text-xl font-bold text-[var(--ink)] mb-3">Clinically Vetted</h3>
+<p class="text-[var(--ink-light)] leading-relaxed">
+                        Every prompt is written and reviewed by registered nurses with clinical experience in that specific field.
+                    </p>
+</div>
+<div class="bg-[var(--warm-white)] p-8 rounded-2xl border border-[var(--border)] shadow-sm">
+<div class="w-12 h-12 bg-[var(--amber-pale)] rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[var(--amber-dark)] text-2xl">translate</span>
+</div>
+<h3 class="font-serif text-xl font-bold text-[var(--ink)] mb-3">Plain English</h3>
+<p class="text-[var(--ink-light)] leading-relaxed">
+                        We translate complex medical jargon into clear, understandable language you can actually use.
+                    </p>
+</div>
+<div class="bg-[var(--warm-white)] p-8 rounded-2xl border border-[var(--border)] shadow-sm">
+<div class="w-12 h-12 bg-[var(--teal-light)] rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[var(--teal-dark)] text-2xl">accessibility_new</span>
+</div>
+<h3 class="font-serif text-xl font-bold text-[var(--ink)] mb-3">Patient Centered</h3>
+<p class="text-[var(--ink-light)] leading-relaxed">
+                        Designed for your perspective, addressing the fears, doubts, and daily challenges doctors often miss.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-[var(--warm-white)] border-y border-[var(--border)]">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<div class="text-[var(--amber)] text-xs font-bold uppercase tracking-widest mb-3">Simple Process</div>
+<h2 class="font-serif text-3xl md:text-4xl font-bold text-[var(--ink)]">How It Works</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+<div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-[var(--border)] -z-10"></div>
+<div class="text-center relative">
+<div class="w-24 h-24 bg-[var(--cream)] border-2 border-[var(--border)] rounded-full flex items-center justify-center text-3xl font-serif font-bold text-[var(--amber)] mx-auto mb-6 shadow-sm z-10">1</div>
+<h3 class="font-serif text-xl font-bold text-[var(--ink)] mb-2">Pick your situation</h3>
+<p class="text-[var(--ink-muted)]">Find the exact condition or challenge you are facing.</p>
+</div>
+<div class="text-center relative">
+<div class="w-24 h-24 bg-[var(--cream)] border-2 border-[var(--border)] rounded-full flex items-center justify-center text-3xl font-serif font-bold text-[var(--amber)] mx-auto mb-6 shadow-sm z-10">2</div>
+<h3 class="font-serif text-xl font-bold text-[var(--ink)] mb-2">Copy the prompt</h3>
+<p class="text-[var(--ink-muted)]">One click to copy our nurse-engineered structure.</p>
+</div>
+<div class="text-center relative">
+<div class="w-24 h-24 bg-[var(--cream)] border-2 border-[var(--border)] rounded-full flex items-center justify-center text-3xl font-serif font-bold text-[var(--amber)] mx-auto mb-6 shadow-sm z-10">3</div>
+<h3 class="font-serif text-xl font-bold text-[var(--ink)] mb-2">Get real answers</h3>
+<p class="text-[var(--ink-muted)]">Paste into ChatGPT for clear, actionable guidance.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 bg-[var(--cream)]" id="categories">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<div class="text-[var(--ink-muted)] text-xs font-bold uppercase tracking-widest mb-3">Library</div>
+<h2 class="font-serif text-3xl md:text-4xl font-bold text-[var(--ink)]">Featured Categories</h2>
+</div>
+<a class="text-[var(--amber-dark)] font-bold hover:underline flex items-center gap-1 group" href="/prompts">
+                    View all categories 
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<?php foreach ($featuredCategories as $category): ?>
+    <?php $t = $category['tone']; ?>
+    <a class="category-card bg-[var(--warm-white)] border border-[var(--border)] rounded-xl p-6 transition-all duration-300 group" href="<?= app_h((string) $category['link']); ?>">
+        <div class="flex items-start justify-between mb-4">
+            <div class="bg-[var(--<?= $t === 'amber' ? 'amber-pale' : 'teal-light'; ?>)] p-3 rounded-lg text-[var(--<?= $t === 'amber' ? 'amber-dark' : 'teal-dark'; ?>)]">
+                <span class="material-symbols-outlined text-2xl"><?= app_h((string) $category['icon']); ?></span>
             </div>
-        </section>
-
-        <section class="home-template-proof">
-            <div class="home-template-container">
-                <div class="home-template-proof-copy">
-                    <h2>Most patients leave their appointments with more questions than answers.</h2>
-                    <p>Healthcare is complex. We simplify it so you can take control.</p>
-                </div>
-                <div class="home-template-proof-grid">
-                    <article class="home-template-proof-card">
-                        <span class="home-template-proof-icon home-template-proof-icon-teal material-symbols-outlined" aria-hidden="true">medical_services</span>
-                        <h3>Clinically Vetted</h3>
-                        <p>Every prompt is written and reviewed by registered nurses with clinical experience in that specific field.</p>
-                    </article>
-                    <article class="home-template-proof-card">
-                        <span class="home-template-proof-icon home-template-proof-icon-amber material-symbols-outlined" aria-hidden="true">translate</span>
-                        <h3>Plain English</h3>
-                        <p>We translate complex medical jargon into clear, understandable language you can actually use.</p>
-                    </article>
-                    <article class="home-template-proof-card">
-                        <span class="home-template-proof-icon home-template-proof-icon-teal material-symbols-outlined" aria-hidden="true">accessibility_new</span>
-                        <h3>Patient Centered</h3>
-                        <p>Designed for your perspective, addressing the fears, doubts, and daily challenges doctors often miss.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="home-template-steps">
-            <div class="home-template-container">
-                <p class="home-template-section-kicker">Simple Process</p>
-                <h2>How It Works</h2>
-                <ol class="home-template-steps-list">
-                    <li>
-                        <span class="home-template-step-number">1</span>
-                        <h3>Pick your situation</h3>
-                        <p>Find the exact condition or challenge you are facing.</p>
-                    </li>
-                    <li>
-                        <span class="home-template-step-number">2</span>
-                        <h3>Copy the prompt</h3>
-                        <p>One click to copy our nurse-engineered structure.</p>
-                    </li>
-                    <li>
-                        <span class="home-template-step-number">3</span>
-                        <h3>Get real answers</h3>
-                        <p>Paste into ChatGPT for clear, actionable guidance.</p>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <section class="home-template-categories" id="categories">
-            <div class="home-template-container">
-                <div class="home-template-categories-header">
-                    <div>
-                        <p class="home-template-section-label">Library</p>
-                        <h2>Featured Categories</h2>
-                    </div>
-                    <a href="/prompts">
-                        View all categories
-                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </div>
-                <div class="home-template-categories-grid">
-                    <?php foreach ($featuredCategories as $category): ?>
-                        <a class="home-template-category-card" href="<?= app_h((string) $category['link']); ?>">
-                            <div class="home-template-category-head">
-                                <span class="home-template-category-icon home-template-category-icon-<?= app_h((string) $category['tone']); ?>">
-                                    <span class="material-symbols-outlined" aria-hidden="true"><?= app_h((string) $category['icon']); ?></span>
-                                </span>
-                                <span class="home-template-category-pill"><?= app_h((string) $category['prompt_count']); ?></span>
-                            </div>
-                            <h3><?= app_h((string) $category['title']); ?></h3>
-                            <p><?= app_h((string) $category['description']); ?></p>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
-
-        <section class="home-template-cta-shell">
-            <div class="home-template-container">
-                <div class="home-template-cta">
-                    <div class="home-template-cta-overlay" aria-hidden="true"></div>
-                    <div class="home-template-cta-content">
-                        <h2>Unlock better health conversations.</h2>
-                        <p>Get full access to every condition pack, nurse's notes, and priority updates for one simple price.</p>
-                        <div class="home-template-cta-actions">
-                            <a class="home-template-btn home-template-btn-primary" href="/billing/checkout?plan=monthly">Get Full Access - $17/month</a>
-                            <span>Cancel anytime</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="home-template-footer">
-        <div class="home-template-container">
-            <div class="home-template-footer-grid">
-                <div>
-                    <p class="home-template-footer-logo">Prompt<span>RN</span></p>
-                    <p class="home-template-footer-copy">Empowering patients with nurse-authored AI tools to bridge the gap in healthcare communication.</p>
-                    <div class="home-template-footer-icons">
-                        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
-                        <span class="material-symbols-outlined" aria-hidden="true">forum</span>
-                    </div>
-                </div>
-                <div>
-                    <h4>Platform</h4>
-                    <a href="/prompts">Browse Conditions</a>
-                    <a href="/tools/prompt-generator">Free Tools</a>
-                    <a href="/billing/checkout?plan=monthly">Pricing</a>
-                </div>
-                <div>
-                    <h4>Company</h4>
-                    <a href="/about">About Us</a>
-                    <a href="/about">Careers</a>
-                    <a href="/about">Contact</a>
-                </div>
-                <div>
-                    <h4>Legal</h4>
-                    <a href="/about">Privacy Policy</a>
-                    <a href="/about">Terms of Service</a>
-                    <a href="/about">Medical Disclaimer</a>
-                </div>
-            </div>
-            <div class="home-template-footer-bottom">
-                <div>&copy; <?= app_h((string) date('Y')); ?> PromptRN - Written by nurses, for patients</div>
-                <div>PromptRN does not provide medical advice. Always consult a professional.</div>
-            </div>
+            <span class="text-xs font-bold bg-[var(--cream)] text-[var(--ink-muted)] px-2 py-1 rounded border border-[var(--border)]"><?= app_h((string) $category['prompt_count']); ?></span>
         </div>
-    </footer>
-</article>
+        <h3 class="font-serif text-xl font-bold text-[var(--ink)] mb-2 group-hover:text-[var(--amber)] transition-colors"><?= app_h((string) $category['title']); ?></h3>
+        <p class="text-sm text-[var(--ink-light)] line-clamp-2"><?= app_h((string) $category['description']); ?></p>
+    </a>
+<?php endforeach; ?>
+</div>
+</div>
+</section>
+<section class="py-12 px-6 bg-[var(--cream)]">
+<div class="max-w-7xl mx-auto">
+<div class="bg-gradient-to-br from-[var(--ink)] to-[#2D2520] rounded-2xl p-8 md:p-16 text-center shadow-xl relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+<div class="relative z-10">
+<h2 class="font-serif text-3xl md:text-5xl font-bold text-white mb-6">Unlock better health conversations.</h2>
+<p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                        Get full access to every condition pack, nurse's notes, and priority updates for one simple price.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="btn-primary border-white/10 shadow-lg" href="/auth/register">Get Full Access — $17/month</a>
+<span class="text-white/40 text-sm font-medium">Cancel anytime</span>
+</div>
+</div>
+</div>
+</div>
+</section>
 <?php require __DIR__ . '/includes/footer.php'; ?>
