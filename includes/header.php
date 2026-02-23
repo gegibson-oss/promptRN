@@ -27,6 +27,9 @@ $seoMeta = [
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php seo_render_meta_tags($seoMeta); ?>
+    <?php if (isset($extraHeadTags) && is_string($extraHeadTags) && $extraHeadTags !== ''): ?>
+        <?= $extraHeadTags; ?>
+    <?php endif; ?>
     <link rel="stylesheet" href="/assets/css/main.css">
     <script defer src="/assets/js/main.js"></script>
 </head>
