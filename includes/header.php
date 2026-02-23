@@ -30,6 +30,7 @@ $seoMeta = [
     <link rel="stylesheet" href="/assets/css/main.css">
     <script defer src="/assets/js/main.js"></script>
 </head>
-<body>
+<?php $bodyClassAttr = isset($bodyClass) && is_string($bodyClass) && $bodyClass !== '' ? ' class="' . app_h($bodyClass) . '"' : ''; ?>
+<body<?= $bodyClassAttr; ?>>
 <?php require __DIR__ . '/nav.php'; ?>
 <main class="page-content">
