@@ -273,6 +273,29 @@ if ($authorQuote === '') {
                     </span>
                     <span>RN License Verified</span>
                 </p>
+                <?php if (isset($condition['medical_review'])): ?>
+                <div class="condition-template-medical-review">
+                    <p class="condition-template-review-label">Medically Reviewed By:</p>
+                    <p class="condition-template-reviewer">
+                        <strong><?= app_h($condition['medical_review']['reviewer_name']); ?></strong>, 
+                        <?= app_h($condition['medical_review']['reviewer_credentials']); ?>
+                    </p>
+                    <p class="condition-template-review-date">
+                        Last Reviewed: <?php
+    $reviewDateRaw = $condition['medical_review']['last_reviewed_date'];
+    $reviewDateDisplay = $reviewDateRaw;
+    if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $reviewDateRaw) === 1) {
+        $reviewDate = DateTimeImmutable::createFromFormat('Y-m-d', $reviewDateRaw);
+        if ($reviewDate !== false) {
+            $reviewDateDisplay = $reviewDate->format('M j, Y');
+        }
+    }
+    echo app_h($reviewDateDisplay);
+?>
+                    </p>
+                </div>
+                <?php
+endif; ?>
             </aside>
         </div>
     </section>
@@ -419,7 +442,7 @@ endif; ?>
         continue;
     }
 ?>
-                        <details class="condition-template-faq-item" <?=$faqIndex===0 ? ' open' : '' ; ?>>
+                        <details class="condition-template-faq-item" <?= $faqIndex === 0 ? ' open' : ''; ?>>
                             <summary>
                                 <?= app_h($faqQuestion); ?>
                             </summary>
@@ -438,6 +461,18 @@ endforeach; ?>
                         Prompt content is educational and is not medical advice. Always verify important decisions with
                         your licensed clinician.
                     </p>
+                    <?php if (isset($condition['sources']) && is_array($condition['sources']) && count($condition['sources']) > 0): ?>
+                    <p class="condition-template-sources">
+                        <strong>Sources:</strong>
+                        <ul class="condition-template-sources-list">
+                            <?php foreach ($condition['sources'] as $source): ?>
+                            <li><?= app_h((string)$source); ?></li>
+                            <?php
+    endforeach; ?>
+                        </ul>
+                    </p>
+                    <?php
+endif; ?>
                 </section>
 
                 <?php if ($relatedConditions !== []): ?>

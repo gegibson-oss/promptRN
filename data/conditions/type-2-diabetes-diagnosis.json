@@ -27,6 +27,20 @@
     "experience": "12 years in chronic care, primary care, and patient education",
     "linkedin": "https://linkedin.com/in/sarahmitchellrn"
   },
+  "medical_review": {
+    "reviewer_name": "Dr. James Carter",
+    "reviewer_credentials": "MD, Endocrinology",
+    "last_reviewed_date": "2026-02-15"
+  },
+  "sources": [
+    "American Diabetes Association (ADA) Standards of Care 2026",
+    "Mayo Clinic: Type 2 Diabetes Overview"
+  ],
+  "related_search_terms": [
+    "what to do after type 2 diabetes diagnosis",
+    "type 2 diabetes normal blood sugar levels",
+    "type 2 diabetes medication side effects"
+  ],
   "free_prompts": [
     {
       "id": "p01",
@@ -121,7 +135,11 @@
       "answer": "Immediately after purchase or subscription. Access is granted as soon as webhook processing completes."
     }
   ],
-  "related_conditions": ["prediabetes","hypertension-high-blood-pressure","high-cholesterol"],
+  "related_conditions": [
+    "prediabetes",
+    "hypertension-high-blood-pressure",
+    "high-cholesterol"
+  ],
   "related_situations": [
     "understanding-lab-results",
     "talking-to-your-doctor",

@@ -27,6 +27,20 @@
     "experience": "12 years in chronic care, primary care, and patient education",
     "linkedin": "https://linkedin.com/in/sarahmitchellrn"
   },
+  "medical_review": {
+    "reviewer_name": "Dr. Emily Chen",
+    "reviewer_credentials": "MD, Cardiology",
+    "last_reviewed_date": "2026-02-18"
+  },
+  "sources": [
+    "American Heart Association (AHA) Guidelines",
+    "National Heart, Lung, and Blood Institute"
+  ],
+  "related_search_terms": [
+    "high blood pressure diet plan",
+    "hypertension stage 1 vs stage 2",
+    "blood pressure medication side effects"
+  ],
   "free_prompts": [
     {
       "id": "p01",
@@ -121,7 +135,11 @@
       "answer": "Immediately after purchase or subscription. Access is granted as soon as webhook processing completes."
     }
   ],
-  "related_conditions": ["type-2-diabetes-diagnosis","high-cholesterol","atrial-fibrillation"],
+  "related_conditions": [
+    "type-2-diabetes-diagnosis",
+    "high-cholesterol",
+    "atrial-fibrillation"
+  ],
   "related_situations": [
     "understanding-lab-results",
     "talking-to-your-doctor",
