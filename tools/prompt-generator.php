@@ -211,12 +211,12 @@ else: ?>
                         <div class="relative">
                             <select id="who_for" name="who_for"
                                 class="w-full border border-[var(--border-strong)] rounded-lg px-3.5 py-2.5 text-[14px] text-[var(--ink)] focus:ring-2 focus:ring-[var(--amber)] focus:border-[var(--amber)] focus:outline-none appearance-none transition-shadow shadow-sm bg-white cursor-pointer font-medium">
-                                <option value="Myself" <?=$whoFor==='Myself' ? 'selected' : ''?>>Myself</option>
-                                <option value="My Child" <?=$whoFor==='My Child' ? 'selected' : ''?>>My Child</option>
-                                <option value="My Parent" <?=$whoFor==='My Parent' ? 'selected' : ''?>>My Parent
+                                <option value="Myself" <?= $whoFor === 'Myself' ? 'selected' : '' ?>>Myself</option>
+                                <option value="My Child" <?= $whoFor === 'My Child' ? 'selected' : '' ?>>My Child</option>
+                                <option value="My Parent" <?= $whoFor === 'My Parent' ? 'selected' : '' ?>>My Parent
                                 </option>
-                                <option value="Other Family Member" <?=$whoFor==='Other Family Member' ? 'selected' : ''
-                                   ?>>Other Family Member</option>
+                                <option value="Other Family Member" <?= $whoFor === 'Other Family Member' ? 'selected' : ''
+    ?>>Other Family Member</option>
                             </select>
                             <span
                                 class="material-symbols-outlined text-[var(--ink-muted)] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-xl">expand_more</span>
@@ -267,19 +267,54 @@ else: ?>
             </form>
 
             <script>
-                document.addEvenntentLoaded', () => {
-                const stepe                                  const stepe                              const dot1 = document.getElementById('st                        const dot2 = document.getElementById('ste                        onst nextBtn = document.getElementById('next                          backBtn = document.getElementById('back - bt                             ionInput = document.getElementById('cond                                nput = document.getElementById('goal'                                    cument.getElementById('email');
+                document.addEventListener('DOMContentLoaded', () => {
+                    const step1 = document.getElementById('step-1');
+                    const step2 = document.getElementById('step-2');
+                    const dot1 = document.getElementById('step-dot-1');
+                    const dot2 = document.getElementById('step-dot-2');
+                    const nextBtn = document.getElementById('next-btn');
+                    const backBtn = document.getElementById('back-btn');
+                    const conditionInput = document.getElementById('condition');
+                    const goalInput = document.getElementById('goal');
+                    const emailInput = document.getElementById('email');
 
-                                        ick', () => {
-                                         tion t                           if (!conditionInp                                               tionInput.r                                         re                                                if (!goalInput                                        goalInput.reportVa                                   n;
-                                                     to Step 2
-                                                                                                                              mo                                           ot--                                                            st                         var(--border -                                   )                          //                         ed only on                                            block
-                                                     out to allo                                          setTimeout(() => em                                   ckBtn.addEventListener('click', () => {
-                                 ail requ                                   emailInpu                                     // Transition to Step 1
-                    step1.styl                                             te dots
-                                                      )]');
-                                                  er - strong)]');
-                o[var(--a                                              Prevent form submit on                                                             keydown', function                                              Enter') tDefault(nextBtn.c                                });
+                    nextBtn.addEventListener('click', () => {
+                        if (!conditionInput.checkValidity()) {
+                            conditionInput.reportValidity();
+                            return;
+                        }
+                        if (!goalInput.checkValidity()) {
+                            goalInput.reportValidity();
+                            return;
+                        }
+                        step1.style.display = 'none';
+                        step2.style.display = 'flex';
+                        dot1.classList.remove('bg-[var(--amber)]');
+                        dot1.classList.add('bg-[var(--border-strong)]');
+                        dot2.classList.remove('bg-[var(--border-strong)]');
+                        dot2.classList.add('bg-[var(--amber)]');
+                        emailInput.required = true;
+                        setTimeout(() => emailInput.focus(), 100);
+                    });
+
+                    backBtn.addEventListener('click', () => {
+                        emailInput.required = false;
+                        step2.style.display = 'none';
+                        step1.style.display = 'block';
+                        dot2.classList.remove('bg-[var(--amber)]');
+                        dot2.classList.add('bg-[var(--border-strong)]');
+                        dot1.classList.remove('bg-[var(--border-strong)]');
+                        dot1.classList.add('bg-[var(--amber)]');
+                    });
+
+                    document.getElementById('generator-form').addEventListener('keydown', function (event) {
+                        if (eveEnter') {
+         ) {
+                                event.preventDefault();
+                                nextBtn.click();
+                            }
+                        }
+                    });
                 });
             </script>
             <style>
