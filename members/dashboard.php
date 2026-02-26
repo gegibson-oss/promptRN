@@ -377,4 +377,5 @@ endif; ?>
 
         </div>
     </div>
-    <?php require __DIR__ . '/../includes/footer.php'; ?>
+</div>
+<?php require __DIR__ . '/../includes/footer.php'; ?>

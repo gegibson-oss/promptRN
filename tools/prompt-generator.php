@@ -151,22 +151,21 @@ endif; ?>
                 </a>
             </div>
             <script>
-                document.getElementById('copy-btn').addEventListener('click', function  () {                    st text = document.getElementById('prompt-text').innerText;
-                       or.clipboard.writeText(text).then(function () {
+                document.getElementById('copy-btn').addEventListener('click', function () {                    st text = document.getElementById('prompt-text').innerText;
+                    or.clipboard.writeText(text).then(function () {
                                = document.getElementById('copy-btn');
                                   = document.getElementById('copy-text');
                                        = btnText.innerText;
 
-                                          ssList.remove('bg-[                        (--ink-light)]');
-                        btn.classList.add('bg-[var(--t                        l-dark)]');
-                        btnText.innerText = 'Copied Succes                               setTimeout(() => {
-                  '                        [var(--ink-light)]'                            tn.classList.remove('bg-[var(--teal)]', 'hover:bg-[var(--teal-dark)]'                            tnText.innerText = originalText;
-                        }, 2500);
-                    });
+                        '                        [var(--ink-light)]'                        tn.classList.add('bg-[var(--teal)]', 'hover:bg-[var(--teal-dark)]');
+                           .innerText = 'Copied Successfully!';
+                        setTimeou                                  btn.classList.add('bg-[var(--ink)]t                              btn.classList                            er:bg-[var(--teal-dark)]');
+                        btnText.inner
+                    }, 2500);
+                });
                 });
             </script>
-            <?php
-else: ?>
+            else: ?>
             <!-- Form State -->
             <div class="px-8 py-6 border-b border-[var(--border)] bg-[var(--cream)] flex justify-between items-center">
                 <div>
@@ -263,31 +262,19 @@ else: ?>
             </form>
 
             <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const stepe                                  const step2 = document.getElementByI                             const dot1 = document.getElementById('st                            const dot2 = document.getElementById('ste                           const nextBtn = document.getElementById('next                        const backBtn = document.getElementById('back-bt                     const conditionInput = document.getElementById('cond                         const goalInput = document.getElementById('goal'                    onst emailInput = document.getElementById('email');
+                document.addEvenntentLoaded', () => {
+                const stepe                                  const stepe                              const dot1 = document.getElementById('st                        const dot2 = document.getElementById('ste                        onst nextBtn = document.getElementById('next                          backBtn = document.getElementById('back - bt                             ionInput = document.getElementById('cond                                nput = document.getElementById('goal'                                    cument.getElementById('email');
 
-                            ventListener('click', () => {
-                                         tion trigger
-                        if (!conditionInp                                              conditionInput.r                                         return;
-                                              if (!goalInput.checkValidi                                goalInput.reportValidity();
-                             n;
-                                                       n to Step 2
-                                                                          step                                                            mo                                              dot                        --amber)]');
-                                         g-[var(--border-strong)]');
-                          lassList.remove('bg-[var(--border-                         g-[var(--amber)                          // Make email explicitly required only on                          early form submission block
-                                            ue;
-                        // Small timeout to allo                                              setTimeout(() => em                                     backBtn.addEventListener('click', () => {
-                        // Disable email requ                                   emailInput.requir                                 // Transition to Step 1
-                                          'none';
-                        step1.styl                                             te dots
-                        dot2.class                        )]');
-                        dot2.c                        er-strong)]');
-              o                        ]');
-                                           [var(--amber)]');
-                                         // Prevent form submit on                          ntById('generat                        keydown', function (event) {
-                                       Enter') {
-                            if (step1.s                                                       event.preventDefault(                                                        nextBtn.c                    xt s                          }
-                    });
+                                        ick', () => {
+                                         tion t                           if (!conditionInp                                               tionInput.r                                         re                                                if (!goalInput                                        goalInput.reportVa                                   n;
+                                                     to Step 2
+                                                                                                                              mo                                           ot--                                                            st                         var(--border -                                   )                          //                         ed only on                                            block
+                                                     out to allo                                          setTimeout(() => em                                   ckBtn.addEventListener('click', () => {
+                                 ail requ                                   emailInpu                                     // Transition to Step 1
+                    step1.styl                                             te dots
+                                                      )]');
+                                                  er - strong)]');
+                o[var(--a                                              Prevent form submit on                                                             keydown', function                                              Enter') tDefault(nextBtn.c                                });
                 });
             </script>
             <style>
