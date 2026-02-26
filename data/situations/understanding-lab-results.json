@@ -1,0 +1,13 @@
+{
+    "slug": "understanding-lab-results",
+    "title": "Understanding Lab Results",
+    "summary": "Clear, plain-English explanations and prompts to decipher your bloodwork, imagining what questions your doctor will ask next.",
+    "seo_title": "Understand Your Lab Results | PromptRN",
+    "seo_description": "Translate complex lab results like A1C, cholesterol panels, and thyroid tests into actionable health insights.",
+    "related_conditions": [
+        "prediabetes",
+        "high-cholesterol",
+        "hypothyroidism",
+        "type-2-diabetes-diagnosis"
+    ]
+}
