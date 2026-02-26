@@ -1,0 +1,91 @@
+{
+    "slug": "understanding-post-stroke-care",
+    "published_date": "2026-03-01",
+    "seo": {
+        "page_title": "Understanding Post-Stroke Care: A Patient's Guide | PromptRN",
+        "meta_description": "A comprehensive guide to navigating post-stroke care, including early rehabilitation, medication tracking, and communication with specialized care teams.",
+        "h1": "Understanding Post-Stroke Care: A Patient's Guide",
+        "primary_keyword": "post-stroke care guide",
+        "secondary_keywords": [
+            "stroke recovery timeline",
+            "questions for neurologist post-stroke",
+            "stroke rehabilitation steps"
+        ]
+    },
+    "author": {
+        "name": "Sarah Mitchell RN",
+        "role": "Registered Nurse",
+        "image": "/assets/placeholder-author.jpg"
+    },
+    "featured_image": "https://placehold.co/1200x600/e6f2f2/145353?text=Post-Stroke+Care",
+    "category": "Neurology",
+    "estimated_reading_time": "8 min read",
+    "content_blocks": [
+        {
+            "type": "paragraph",
+            "content": "The transition home after a stroke can feel overwhelming. Patients and families often leave the hospital with a stack of discharge papers and a complicated new daily routine. Understanding the immediate next steps is crucial to reducing anxiety and preventing readmission."
+        },
+        {
+            "type": "heading",
+            "level": "h2",
+            "content": "The First 30 Days at Home"
+        },
+        {
+            "type": "paragraph",
+            "content": "During the first month at home, the focus shifts entirely to safety, medication adherence, and early rehabilitation. It is common to experience profound fatigue—this is your brain requiring immense energy to heal and rewire itself."
+        },
+        {
+            "type": "list",
+            "items": [
+                "Prioritize fall prevention by removing trip hazards like loose rugs.",
+                "Establish a strict pill box routine. Missed blood pressure or blood thinner medications are a leading cause of preventable setbacks.",
+                "Schedule all follow-up appointments with your neurologist and primary care provider within the first two weeks."
+            ]
+        },
+        {
+            "type": "heading",
+            "level": "h2",
+            "content": "Building Your Therapy Routine"
+        },
+        {
+            "type": "paragraph",
+            "content": "Physical, occupational, and speech therapy are not optional—they are the foundation of your recovery. The brain's neuroplasticity is highest in the months immediately following the stroke, meaning consistent, repetitive practice is essential."
+        },
+        {
+            "type": "cta",
+            "text": "Need help formulating questions for your neurologist? Get our Custom Stroke Prep Kit.",
+            "link": "/prompts/stroke-recovery"
+        },
+        {
+            "type": "paragraph",
+            "content": "If you are receiving outpatient therapy, ensure your caregivers attend at least one session a week. They need to learn how to assist you safely without doing the work for you, which can accidentally stall your progress."
+        },
+        {
+            "type": "heading",
+            "level": "h2",
+            "content": "When to Call the Doctor"
+        },
+        {
+            "type": "paragraph",
+            "content": "Do not wait for your scheduled appointment if you notice sudden changes. You should contact emergency services immediately if you experience any signs of the FAST acronym: Face drooping, Arm weakness, Speech difficulty, or Time to call 911."
+        }
+    ],
+    "faq": [
+        {
+            "question": "How long does stroke recovery typically take?",
+            "answer": "Recovery is highly individualized. While the most rapid recovery often happens in the first 3 to 6 months, patients can continue to see improvements for years with dedicated therapy."
+        },
+        {
+            "question": "Why am I so tired all the time?",
+            "answer": "Post-stroke fatigue is incredibly common and different from normal tiredness. Your brain is using massive amounts of energy to create new neural pathways. Listen to your body and schedule frequent rests."
+        }
+    ],
+    "related_conditions": [
+        "hypertension-high-blood-pressure",
+        "atrial-fibrillation"
+    ],
+    "related_situations": [
+        "newly-diagnosed",
+        "disease-management"
+    ]
+}
