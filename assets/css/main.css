@@ -528,7 +528,9 @@ pre {
 
 .condition-template-hero-badge-icon {
   color: #124f4f;
+  display: inline-flex;
   height: 0.833rem;
+  overflow: hidden;
   width: 0.833rem;
 }
 
@@ -679,6 +681,7 @@ pre {
 .condition-template-author-verified-icon {
   display: inline-flex;
   height: 1rem;
+  overflow: hidden;
   width: 1rem;
 }
 

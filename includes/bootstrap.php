@@ -237,7 +237,7 @@ function app_url(string $path = '/'): string
 
 function app_validate_slug(string $slug): bool
 {
-    return (bool) preg_match('/^[a-z0-9-]+$/', $slug);
+    return (bool)preg_match('/^[a-z0-9-]+$/', $slug);
 }
 
 function app_meta(): array
@@ -256,7 +256,7 @@ function app_condition_slugs(): array
 {
     $slugs = [];
     foreach ((app_meta()['conditions'] ?? []) as $condition) {
-        $slug = (string) ($condition['slug'] ?? '');
+        $slug = (string)($condition['slug'] ?? '');
         if (app_validate_slug($slug)) {
             $slugs[] = $slug;
         }
@@ -274,6 +274,49 @@ function app_condition_exists(string $slug): bool
     return in_array($slug, app_condition_slugs(), true);
 }
 
+function app_situation_slugs(): array
+{
+    $meta = app_meta();
+
+    if (isset($meta['situations']) && is_array($meta['situations']) && count($meta['situations']) > 0) {
+        $slugs = [];
+        foreach ($meta['situations'] as $situationSlug) {
+            $slug = (string)$situationSlug;
+            if (app_validate_slug($slug)) {
+                $slugs[] = $slug;
+            }
+        }
+        return array_values(array_unique($slugs));
+    }
+
+    // Fallback: scanned directory if not in meta.json
+    $slugs = [];
+    $dir = app_data_path('situations');
+    if (is_dir($dir)) {
+        $files = scandir($dir);
+        if ($files !== false) {
+            foreach ($files as $file) {
+                if (str_ends_with($file, '.json')) {
+                    $slug = substr($file, 0, -5);
+                    if (app_validate_slug($slug)) {
+                        $slugs[] = $slug;
+                    }
+                }
+            }
+        }
+    }
+    return $slugs;
+}
+
+function app_situation_exists(string $slug): bool
+{
+    if (!app_validate_slug($slug)) {
+        return false;
+    }
+
+    return in_array($slug, app_situation_slugs(), true);
+}
+
 function app_condition_path(string $slug): string
 {
     return app_data_path('conditions/' . $slug . '.json');
@@ -282,8 +325,8 @@ function app_condition_path(string $slug): string
 function app_condition_name(string $slug): string
 {
     foreach ((app_meta()['conditions'] ?? []) as $condition) {
-        if ((string) ($condition['slug'] ?? '') === $slug) {
-            $name = (string) ($condition['condition_name'] ?? '');
+        if ((string)($condition['slug'] ?? '') === $slug) {
+            $name = (string)($condition['condition_name'] ?? '');
             if ($name !== '') {
                 return $name;
             }

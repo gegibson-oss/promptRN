@@ -67,6 +67,21 @@ function seo_render_condition_schemas(array $condition, array $siteMeta, string 
     $authorName = $condition['author']['name'] ?? ($siteMeta['author_name'] ?? 'PromptRN RN Team');
     $authorCredentials = $condition['author']['credentials'] ?? 'Registered Nurse';
 
+    $authorLinkedin = $condition['author']['linkedin'] ?? '';
+    $authorExperience = $condition['author']['experience'] ?? '';
+    
+    $authorSchema = [
+        '@type' => 'Person',
+        'name' => $authorName,
+        'jobTitle' => $authorCredentials,
+    ];
+    if ((string) $authorExperience !== '') {
+        $authorSchema['description'] = $authorExperience;
+    }
+    if ((string) $authorLinkedin !== '') {
+        $authorSchema['sameAs'] = $authorLinkedin;
+    }
+
     $medicalSchema = [
         '@context' => 'https://schema.org',
         '@type' => 'MedicalWebPage',
@@ -75,10 +90,11 @@ function seo_render_condition_schemas(array $condition, array $siteMeta, string 
         'description' => $condition['seo']['meta_description'] ?? '',
         'url' => $canonicalUrl,
         'dateModified' => $condition['last_updated'] ?? gmdate('Y-m-d'),
-        'author' => [
-            '@type' => 'Person',
-            'name' => $authorName,
-            'jobTitle' => $authorCredentials,
+        'author' => $authorSchema,
+        'about' => [
+            '@type' => 'MedicalCondition',
+            'name' => $condition['condition_name'] ?? 'Medical Condition',
+            'description' => $condition['clinical_context'] ?? '',
         ],
     ];
 
@@ -102,12 +118,6 @@ function seo_render_condition_schemas(array $condition, array $siteMeta, string 
             ];
         }
     }
-
-    $faqSchema = [
-        '@context' => 'https://schema.org',
-        '@type' => 'FAQPage',
-        'mainEntity' => $faqEntities,
-    ];
 
     $breadcrumbSchema = [
         '@context' => 'https://schema.org',
@@ -134,7 +144,14 @@ function seo_render_condition_schemas(array $condition, array $siteMeta, string 
         ],
     ];
 
-    $schemas = [$medicalSchema, $faqSchema, $breadcrumbSchema];
+    $schemas = [$medicalSchema, $breadcrumbSchema];
+    if ($faqEntities !== []) {
+        $schemas[] = [
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => $faqEntities,
+        ];
+    }
 
     foreach ($schemas as $schema) {
         $json = json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

@@ -13,6 +13,7 @@ Options -Indexes
   RewriteRule ^about/?$ /about.php [L,QSA]
 
   RewriteRule ^prompts/?$ /prompts/index.php [L,QSA]
+  RewriteRule ^prompts/([a-z0-9-]+)/([a-z0-9-]+)/?$ /prompts/template.php?slug=$1&situation=$2 [L,QSA]
   RewriteRule ^prompts/([a-z0-9-]+)/?$ /prompts/template.php?slug=$1 [L,QSA]
 
   RewriteRule ^situations/([a-z0-9-]+)/?$ /situations/template.php?slug=$1 [L,QSA]
