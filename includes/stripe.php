@@ -18,6 +18,7 @@ function stripe_price_id_for_plan(string $plan): string
     return match ($plan) {
             'pack' => (string)app_env('STRIPE_PRICE_PACK_SINGLE', ''),
             'prep_kit' => (string)app_env('STRIPE_PRICE_PREP_KIT', ''),
+            'course' => (string)app_env('STRIPE_PRICE_COURSE', ''),
             'annual' => (string)app_env('STRIPE_PRICE_SUB_ANNUAL', ''),
             default => (string)app_env('STRIPE_PRICE_SUB_MONTHLY', ''),
         };
@@ -138,7 +139,7 @@ function stripe_create_checkout_url(array $params): string
     $userId = (string)($params['user_id'] ?? '');
     $slug = strtolower((string)($params['slug'] ?? ''));
 
-    if (!in_array($plan, ['pack', 'monthly', 'annual', 'prep_kit'], true)) {
+    if (!in_array($plan, ['pack', 'monthly', 'annual', 'prep_kit', 'course'], true)) {
         throw new RuntimeException('Unsupported checkout plan.');
     }
 
@@ -166,7 +167,7 @@ function stripe_create_checkout_url(array $params): string
         'cancel_url' => app_url('/billing/checkout?cancelled=1&plan=' . urlencode($plan)),
     ];
 
-    if ($plan === 'pack' || $plan === 'prep_kit') {
+    if ($plan === 'pack' || $plan === 'prep_kit' || $plan === 'course') {
         $session = \Stripe\Checkout\Session::create(array_merge($commonSession, [
             'mode' => 'payment',
             'metadata' => [

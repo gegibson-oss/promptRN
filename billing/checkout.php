@@ -7,7 +7,7 @@ require_once __DIR__ . '/../includes/stripe.php';
 $user = auth_require_login();
 
 $plan = strtolower(trim((string) ($_GET['plan'] ?? 'monthly')));
-$allowedPlans = ['pack', 'monthly', 'annual', 'prep_kit'];
+$allowedPlans = ['pack', 'monthly', 'annual', 'prep_kit', 'course'];
 if (!in_array($plan, $allowedPlans, true)) {
     $plan = 'monthly';
 }

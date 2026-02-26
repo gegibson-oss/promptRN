@@ -31,6 +31,8 @@ declare(strict_types=1);
                 <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider">Company</h4>
                 <ul class="space-y-2 text-sm">
                     <li><a class="hover:text-white transition-colors" href="/about">About Us</a></li>
+                    <li><a class="text-[var(--amber-light)] font-bold hover:text-white transition-colors"
+                            href="/organizations">B2B & Licensing</a></li>
                     <li><a class="hover:text-white transition-colors" href="/about">Careers</a></li>
                     <li><a class="hover:text-white transition-colors" href="/about">Contact</a></li>
                 </ul>

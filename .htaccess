@@ -24,6 +24,9 @@ Options -Indexes
   RewriteRule ^situations/([a-z0-9-]+)/?$ /situations/template.php?slug=$1 [L,QSA]
 
   RewriteRule ^tools/prompt-generator/?$ /tools/prompt-generator.php [L,QSA]
+  
+  RewriteRule ^course/?$ /course.php [L,QSA]
+  RewriteRule ^organizations/?$ /organizations.php [L,QSA]
 
   RewriteRule ^members/dashboard/?$ /members/dashboard.php [L,QSA]
   RewriteRule ^members/library/?$ /members/library.php [L,QSA]

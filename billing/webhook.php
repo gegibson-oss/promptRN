@@ -75,6 +75,7 @@ if ($user === null && $email !== '') {
         'stripe_subscription_id' => null,
         'purchased_packs' => [],
         'has_prep_kit' => false,
+        'has_course' => false,
         'convertkit_subscriber_id' => null,
     ];
 }
@@ -140,6 +141,9 @@ if (!users_mark_event_processed($eventId)) {
     exit;
 }
 
+stripe_log('Webhook processed: ' . $eventId . ' (' . $eventType . ')');
+http_response_code(200);
+echo 'OK';
 stripe_log('Webhook processed: ' . $eventId . ' (' . $eventType . ')');
 http_response_code(200);
 echo 'OK';

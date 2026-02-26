@@ -208,92 +208,173 @@ endif; ?>
 
         </div>
 
-        <!-- Right Column: Prep Kit Upsell/Access -->
-        <div
-            class="bg-gradient-to-br from-[#1E293B] to-[var(--ink)] border border-[var(--border)] rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-fit relative">
+        <!-- Right Column: Premium Add-ons -->
+        <div class="flex flex-col gap-6">
+
+            <!-- Video Course -->
             <div
-                class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none">
-            </div>
-
-            <div class="px-8 py-6 border-b border-white/10 relative z-10 flex items-center justify-between">
-                <div>
-                    <h2 class="font-serif text-[19px] font-bold text-white mb-1">Doctor Appointment Prep Kit</h2>
-                    <p class="text-[13px] text-white/70">Premium toolset for better clinical visits.</p>
-                </div>
-                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
-                    <span class="material-symbols-outlined">medical_information</span>
-                </div>
-            </div>
-
-            <div class="p-8 flex-1 space-y-6 relative z-10 bg-white/5">
-                <?php if (!empty($user['has_prep_kit'])): ?>
-                <!-- State 2: Purchased Access -->
-                <div class="bg-white/10 rounded-lg p-5 border border-white/20">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="material-symbols-outlined text-[var(--teal)] text-2xl">check_circle</span>
-                        <span class="text-white font-bold tracking-wide">Access Unlocked</span>
+                class="bg-gradient-to-br from-[var(--teal-dark)] to-[var(--ink)] border border-[var(--border)] rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col relative">
+                <div class="absolute inset-0 bg-white/5 pointer-events-none"></div>
+                <div class="px-8 py-6 border-b border-white/10 relative z-10 flex items-center justify-between">
+                    <div>
+                        <h2 class="font-serif text-[19px] font-bold text-white mb-1">AI Health Masterclass</h2>
+                        <p class="text-[13px] text-white/70">Video Course (2.5 Hours)</p>
                     </div>
-                    <p class="text-white/80 text-sm leading-relaxed mb-6">You have full access to our premium prep kit.
-                        Download your printable agendas or use the interactive symptom tracker below.</p>
+                    <div
+                        class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[var(--amber)] shadow-sm shrink-0">
+                        <span class="material-symbols-outlined">play_circle</span>
+                    </div>
+                </div>
 
-                    <div class="space-y-3">
-                        <a href="#"
-                            class="flex items-center justify-between bg-white text-[var(--ink)] hover:bg-[var(--cream)] px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm"
-                            onclick="event.preventDefault(); alert('Downloading PDF...');">
+                <div class="p-8 flex-1 space-y-6 relative z-10 bg-white/5">
+                    <?php if (!empty($user['has_course'])): ?>
+                    <div class="bg-white/10 rounded-lg p-5 border border-[var(--amber)]/30">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-[var(--amber)] text-2xl">check_circle</span>
+                            <span class="text-white font-bold tracking-wide">Course Unlocked</span>
+                        </div>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">You have lifetime access to the
+                            masterclass. Click below to launch the video player.</p>
+
+                        <a href="/course-player"
+                            class="flex items-center justify-between bg-[var(--amber)] hover:bg-[var(--amber-dark)] text-[var(--ink)] px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm"
+                            onclick="event.preventDefault(); alert('Redirecting to LMS player...');">
                             <span class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-[18px]">picture_as_pdf</span> Printable
-                                Agendas</span>
-                            <span class="material-symbols-outlined text-[18px]">download</span>
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-between bg-[var(--teal)] text-white hover:bg-[var(--teal-dark)] px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm"
-                            onclick="event.preventDefault(); alert('Opening module...');">
-                            <span class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-[18px]">fact_check</span> Interactive
-                                Tracker</span>
+                                    class="material-symbols-outlined text-[18px]">play_arrow</span> Start
+                                Watching</span>
                             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                         </a>
                     </div>
-                </div>
-                <?php
+                    <?php
 else: ?>
-                <!-- State 1: Upsell -->
-                <p class="text-white/90 text-[15px] leading-relaxed">Most patients leave their appointments wishing they
-                    had asked different questions. Don't let your next 15-minute appointment go to waste.</p>
+                    <p class="text-white/90 text-[15px] leading-relaxed">Turn AI into your personal healthcare advocate.
+                        A step-by-step masterclass teaching patients how to securely use AI to decipher medical jargon.
+                    </p>
 
-                <ul class="space-y-3 mt-4">
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
-                        <span class="text-white/80 text-sm">Downloadable symptom trackers and medication logs</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
-                        <span class="text-white/80 text-sm">Printable "Red Flag" question frameworks</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
-                        <span class="text-white/80 text-sm">Negotiating effectively with insurance/specialists</span>
-                    </li>
-                </ul>
+                    <ul class="space-y-3 mt-4">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
+                            <span class="text-white/80 text-sm">Security & avoiding hallucinations</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
+                            <span class="text-white/80 text-sm">Translating radiologist reports to 5th grade
+                                level</span>
+                        </li>
+                    </ul>
 
-                <div class="pt-6 border-t border-white/10 mt-6">
-                    <div class="flex items-end gap-2 mb-4">
-                        <span class="text-3xl font-serif font-bold text-white">$29</span>
-                        <span class="text-white/60 text-sm pb-1 mr-1">one-time</span>
-                        <span
-                            class="bg-[var(--amber)] text-[var(--ink)] text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wider shadow-sm mb-1.5">Best
-                            Value</span>
+                    <div class="pt-6 border-t border-white/10 mt-6">
+                        <div class="flex items-end gap-2 mb-4">
+                            <span class="text-3xl font-serif font-bold text-white">$49</span>
+                            <span class="text-white/50 text-sm pb-1 mr-1 line-through">$99</span>
+                            <span
+                                class="bg-white/20 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wider shadow-sm mb-1.5 border border-white/10">Pre-Launch</span>
+                        </div>
+                        <a href="/course"
+                            class="block w-full text-center bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                            Learn More
+                        </a>
                     </div>
-                    <a href="/billing/checkout?plan=prep_kit"
-                        class="block w-full text-center bg-[var(--amber)] hover:bg-[var(--amber-dark)] text-[var(--ink)] px-6 py-3 rounded-lg font-bold transition-colors shadow-lg">
-                        Upgrade & Unlock Kit
-                    </a>
-                </div>
-                <?php
+                    <?php
 endif; ?>
+                </div>
             </div>
-        </div>
 
+            <!-- Doctor Prep Kit -->
+            <div
+                class="bg-gradient-to-br from-[#1E293B] to-[var(--ink)] border border-[var(--border)] rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-fit relative">
+                <div
+                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none">
+                </div>
+
+                <div class="px-8 py-6 border-b border-white/10 relative z-10 flex items-center justify-between">
+                    <div>
+                        <h2 class="font-serif text-[19px] font-bold text-white mb-1">Doctor Appointment Prep Kit</h2>
+                        <p class="text-[13px] text-white/70">Premium toolset for better clinical visits.</p>
+                    </div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
+                        <span class="material-symbols-outlined">medical_information</span>
+                    </div>
+                </div>
+
+                <div class="p-8 flex-1 space-y-6 relative z-10 bg-white/5">
+                    <?php if (!empty($user['has_prep_kit'])): ?>
+                    <!-- State 2: Purchased Access -->
+                    <div class="bg-white/10 rounded-lg p-5 border border-white/20">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-[var(--teal)] text-2xl">check_circle</span>
+                            <span class="text-white font-bold tracking-wide">Access Unlocked</span>
+                        </div>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">You have full access to our premium prep
+                            kit.
+                            Download your printable agendas or use the interactive symptom tracker below.</p>
+
+                        <div class="space-y-3">
+                            <a href="#"
+                                class="flex items-center justify-between bg-white text-[var(--ink)] hover:bg-[var(--cream)] px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm"
+                                onclick="event.preventDefault(); alert('Downloading PDF...');">
+                                <span class="flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-[18px]">picture_as_pdf</span> Printable
+                                    Agendas</span>
+                                <span class="material-symbols-outlined text-[18px]">download</span>
+                            </a>
+                            <a href="#"
+                                class="flex items-center justify-between bg-[var(--teal)] text-white hover:bg-[var(--teal-dark)] px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm"
+                                onclick="event.preventDefault(); alert('Opening module...');">
+                                <span class="flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-[18px]">fact_check</span> Interactive
+                                    Tracker</span>
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <?php
+else: ?>
+                    <!-- State 1: Upsell -->
+                    <p class="text-white/90 text-[15px] leading-relaxed">Most patients leave their appointments wishing
+                        they
+                        had asked different questions. Don't let your next 15-minute appointment go to waste.</p>
+
+                    <ul class="space-y-3 mt-4">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
+                            <span class="text-white/80 text-sm">Downloadable symptom trackers and medication logs</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
+                            <span class="text-white/80 text-sm">Printable "Red Flag" question frameworks</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
+                            <span class="text-white/80 text-sm">Negotiating effectively with
+                                insurance/specialists</span>
+                        </li>
+                    </ul>
+
+                    <div class="pt-6 border-t border-white/10 mt-6">
+                        <div class="flex items-end gap-2 mb-4">
+                            <span class="text-3xl font-serif font-bold text-white">$29</span>
+                            <span class="text-white/60 text-sm pb-1 mr-1">one-time</span>
+                            <span
+                                class="bg-[var(--amber)] text-[var(--ink)] text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wider shadow-sm mb-1.5">Best
+                                Value</span>
+                        </div>
+                        <a href="/billing/checkout?plan=prep_kit"
+                            class="block w-full text-center bg-[var(--amber)] hover:bg-[var(--amber-dark)] text-[var(--ink)] px-6 py-3 rounded-lg font-bold transition-colors shadow-lg">
+                            Upgrade & Unlock Kit
+                        </a>
+                    </div>
+                    <?php
+endif; ?>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
-<?php require __DIR__ . '/../includes/footer.php'; ?>
+    <?php require __DIR__ . '/../includes/footer.php'; ?>
