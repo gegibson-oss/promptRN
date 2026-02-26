@@ -151,21 +151,26 @@ endif; ?>
                 </a>
             </div>
             <script>
-                document.getElementById('copy-btn').addEventListener('click', function () {                    st text = document.getElementById('prompt-text').innerText;
-                    or.clipboard.writeText(text).then(function () {
-                               = document.getElementById('copy-btn');
-                                  = document.getElementById('copy-text');
-                                       = btnText.innerText;
+                document.getElementById('copy-btn').addEventListener('click', function () {
+                    const text = document.getElementById('prompt-text').innerText;
+                    navigator.clipboard.writeText(text).then(function () {
+                        const btn = document.getElementById('copy-btn');
+                        const btnText = document.getElementById('copy-text');
+                        const originalText = btnText.innerText;
 
-                        '                        [var(--ink-light)]'                        tn.classList.add('bg-[var(--teal)]', 'hover:bg-[var(--teal-dark)]');
-                           .innerText = 'Copied Successfully!';
-                        setTimeou                                  btn.classList.add('bg-[var(--ink)]t                              btn.classList                            er:bg-[var(--teal-dark)]');
-                        btnText.inner
-                    }, 2500);
-                });
+                        btn.classList.remove('bg-[var(--ink)]', 'hover:bg-[var(--ink-light)]');
+                        btn.classList.add('bg-[var(--teal)]', 'hover:bg-[var(--teal-dark)]');
+                        btnText.innerText = 'Copied Successfully!';
+                        setTimeout(() => {
+                            btn.classList.add('bg-[var(--ink)]', 'hover:bg-[var(--ink-light)]');
+                            btn.classList.remove('bg-[var(--teal)]', 'hover:bg-[var(--teal-dark)]');
+                            btnText.innerText = originalText;
+                        }, 2500);
+                    });
                 });
             </script>
-            else: ?>
+            <?php
+else: ?>
             <!-- Form State -->
             <div class="px-8 py-6 border-b border-[var(--border)] bg-[var(--cream)] flex justify-between items-center">
                 <div>
@@ -206,12 +211,12 @@ endif; ?>
                         <div class="relative">
                             <select id="who_for" name="who_for"
                                 class="w-full border border-[var(--border-strong)] rounded-lg px-3.5 py-2.5 text-[14px] text-[var(--ink)] focus:ring-2 focus:ring-[var(--amber)] focus:border-[var(--amber)] focus:outline-none appearance-none transition-shadow shadow-sm bg-white cursor-pointer font-medium">
-                                <option value="Myself" <?= $whoFor === 'Myself' ? 'selected' : '' ?>>Myself</option>
-                                <option value="My Child" <?= $whoFor === 'My Child' ? 'selected' : '' ?>>My Child</option>
-                                <option value="My Parent" <?= $whoFor === 'My Parent' ? 'selected' : '' ?>>My Parent
+                                <option value="Myself" <?=$whoFor==='Myself' ? 'selected' : ''?>>Myself</option>
+                                <option value="My Child" <?=$whoFor==='My Child' ? 'selected' : ''?>>My Child</option>
+                                <option value="My Parent" <?=$whoFor==='My Parent' ? 'selected' : ''?>>My Parent
                                 </option>
-                                <option value="Other Family Member" <?= $whoFor === 'Other Family Member' ? 'selected' : ''
-     ?>>Other Family Member</option>
+                                <option value="Other Family Member" <?=$whoFor==='Other Family Member' ? 'selected' : ''
+                                   ?>>Other Family Member</option>
                             </select>
                             <span
                                 class="material-symbols-outlined text-[var(--ink-muted)] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-xl">expand_more</span>
