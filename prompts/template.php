@@ -426,7 +426,8 @@ else: ?>
                             <?= app_h($packPrice); ?>
                         </a>
                         <p class="condition-template-unlock-subtext">
-                            Or subscribe for full library access: <a href="/billing/checkout?plan=monthly">$17/month</a>
+                            Or subscribe for full access: <a href="/billing/checkout?plan=monthly">$17/mo</a> or <a
+                                href="/billing/checkout?plan=annual">$99/yr</a>
                         </p>
                     </div>
                     <?php
@@ -445,7 +446,7 @@ endif; ?>
         continue;
     }
 ?>
-                        <details class="condition-template-faq-item" <?=$faqIndex===0 ? ' open' : '' ; ?>>
+                        <details class="condition-template-faq-item" <?= $faqIndex === 0 ? ' open' : ''; ?>>
                             <summary>
                                 <?= app_h($faqQuestion); ?>
                             </summary>
@@ -522,7 +523,11 @@ endif; ?>
 else: ?>
                     <h3>Get Every Condition Pack</h3>
                     <p>Full library access, new nurse-written packs every week.</p>
-                    <a class="button" href="/billing/checkout?plan=monthly">Start for $17/month</a>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+                        <a class="button" href="/billing/checkout?plan=monthly">Monthly — $17/mo</a>
+                        <a class="button" style="background: var(--teal); border-color: var(--teal);"
+                            href="/billing/checkout?plan=annual">Annual — $99/yr (Save 50%)</a>
+                    </div>
                     <?php
 endif; ?>
                 </section>

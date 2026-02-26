@@ -43,7 +43,8 @@ $progressPercent = round(($stepsCompleted / $stepsTotal) * 100);
                         class="text-[var(--border)]" />
                     <!-- stroke-dasharray roughly 2*PI*radius. 2 * 3.14159 * 24 = 150.8 -->
                     <circle cx="28" cy="28" r="24" stroke="currentColor" stroke-width="4" fill="transparent"
-                        stroke-dasharray="150.8" stroke-dashoffset="<?=(string)(150.8 - (150.8 * ($progressPercent / 100)))?>"
+                        stroke-dasharray="150.8"
+                        stroke-dashoffset="<?=(string)(150.8 - (150.8 * ($progressPercent / 100)))?>"
                         class="text-[var(--amber)] transition-all duration-1000 ease-out" />
                 </svg>
                 <span class="absolute text-xs font-bold text-[var(--amber-dark)]">
@@ -166,10 +167,29 @@ endif; ?>
                         <h3 class="font-serif font-bold text-[var(--ink)] text-lg mb-2">Full Access Subscription</h3>
                         <p class="text-[var(--ink-light)] text-sm leading-relaxed mb-5">Get unlimited access to all
                             expert-written condition packs and updates.</p>
-                        <a href="/billing/checkout?plan=monthly"
+
+                        <?php if ($isSubscribed): ?>
+                        <a href="/members/account"
                             class="inline-block bg-[var(--warm-white)] hover:bg-[var(--cream)] text-[var(--ink)] border border-[var(--border-strong)] px-6 py-2.5 rounded-lg text-sm font-bold transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--amber)] focus:ring-offset-2">
-                            <?= $isSubscribed ? 'Manage Subscription' : 'View Plans'?>
+                            Manage Subscription
                         </a>
+                        <?php
+else: ?>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="/billing/checkout?plan=monthly"
+                                class="inline-block bg-[var(--warm-white)] hover:bg-[var(--cream)] text-[var(--ink)] border border-[var(--border-strong)] px-6 py-2.5 rounded-lg text-sm font-bold transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--amber)] focus:ring-offset-2">
+                                Monthly ($17/mo)
+                            </a>
+                            <a href="/billing/checkout?plan=annual"
+                                class="inline-block bg-[var(--ink)] hover:bg-[var(--ink-light)] text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--ink)] focus:ring-offset-2 relative">
+                                Annual ($99/yr)
+                                <span
+                                    class="absolute -top-2.5 -right-2.5 bg-[var(--teal)] text-white text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded shadow-sm">Save
+                                    50%</span>
+                            </a>
+                        </div>
+                        <?php
+endif; ?>
                     </div>
                 </div>
             </div>

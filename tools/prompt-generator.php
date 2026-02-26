@@ -23,7 +23,8 @@ if (app_request_is_post()) {
         $error = 'Security token invalid. Please refresh and try again.';
     }
     elseif ($condition !== '' && $goal !== '' && $email !== '') {
-        // TODO: Implement ConvertKit API call with $email
+        require_once __DIR__ . '/../includes/convertkit.php';
+        convertkit_subscribe_email($email);
 
         $target = $whoFor === 'Myself' ? 'I was' : ($whoFor === 'My Child' ? 'My child was' : ($whoFor === 'My Parent' ? 'My parent was' : 'Someone I care for was'));
         $targetSelf = $whoFor === 'Myself' ? 'me' : 'them';
@@ -150,22 +151,16 @@ endif; ?>
                 </a>
             </div>
             <script>
-                document.getElementById('copy-btn').addEventListener('click', function () {
-                    const text = document.getElementById('prompt-text').innerText;
-                    navigator.clipboard.writeText(text).then(function () {
-                        const btn = document.getElementById('copy-btn');
-                        const btnText = document.getElementById('copy-text');
-                        const originalText = btnText.innerText;
+                document.getElementById('copy-btn').addEventListener('click', function  () {                    st text = document.getElementById('prompt-text').innerText;
+                       or.clipboard.writeText(text).then(function () {
+                               = document.getElementById('copy-btn');
+                                  = document.getElementById('copy-text');
+                                       = btnText.innerText;
 
-                        // Visual feedback
-                        btn.classList.remove('bg-[var(--ink)]', 'hover:bg-[var(--ink-light)]');
-                        btn.classList.add('bg-[var(--teal)]', 'hover:bg-[var(--teal-dark)]');
-                        btnText.innerText = 'Copied Successfully!';
-
-                        setTimeout(() => {
-                            btn.classList.add('bg-[var(--ink)]', 'hover:bg-[var(--ink-light)]');
-                            btn.classList.remove('bg-[var(--teal)]', 'hover:bg-[var(--teal-dark)]');
-                            btnText.innerText = originalText;
+                                          ssList.remove('bg-[                        (--ink-light)]');
+                        btn.classList.add('bg-[var(--t                        l-dark)]');
+                        btnText.innerText = 'Copied Succes                               setTimeout(() => {
+                  '                        [var(--ink-light)]'                            tn.classList.remove('bg-[var(--teal)]', 'hover:bg-[var(--teal-dark)]'                            tnText.innerText = originalText;
                         }, 2500);
                     });
                 });
@@ -212,12 +207,12 @@ else: ?>
                         <div class="relative">
                             <select id="who_for" name="who_for"
                                 class="w-full border border-[var(--border-strong)] rounded-lg px-3.5 py-2.5 text-[14px] text-[var(--ink)] focus:ring-2 focus:ring-[var(--amber)] focus:border-[var(--amber)] focus:outline-none appearance-none transition-shadow shadow-sm bg-white cursor-pointer font-medium">
-                                <option value="Myself" <?=$whoFor==='Myself' ? 'selected' : ''?>>Myself</option>
-                                <option value="My Child" <?=$whoFor==='My Child' ? 'selected' : ''?>>My Child</option>
-                                <option value="My Parent" <?=$whoFor==='My Parent' ? 'selected' : ''?>>My Parent
+                                <option value="Myself" <?= $whoFor === 'Myself' ? 'selected' : '' ?>>Myself</option>
+                                <option value="My Child" <?= $whoFor === 'My Child' ? 'selected' : '' ?>>My Child</option>
+                                <option value="My Parent" <?= $whoFor === 'My Parent' ? 'selected' : '' ?>>My Parent
                                 </option>
-                                <option value="Other Family Member" <?=$whoFor==='Other Family Member' ? 'selected' : ''
-                                   ?>>Other Family Member</option>
+                                <option value="Other Family Member" <?= $whoFor === 'Other Family Member' ? 'selected' : ''
+     ?>>Other Family Member</option>
                             </select>
                             <span
                                 class="material-symbols-outlined text-[var(--ink-muted)] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-xl">expand_more</span>
@@ -269,67 +264,29 @@ else: ?>
 
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
-                    const step1 = document.getElementById('step-1');
-                    const step2 = document.getElementById('step-2');
-                    const dot1 = document.getElementById('step-dot-1');
-                    const dot2 = document.getElementById('step-dot-2');
-                    const nextBtn = document.getElementById('next-btn');
-                    const backBtn = document.getElementById('back-btn');
-                    const conditionInput = document.getElementById('condition');
-                    const goalInput = document.getElementById('goal');
-                    const emailInput = document.getElementById('email');
+                    const stepe                                  const step2 = document.getElementByI                             const dot1 = document.getElementById('st                            const dot2 = document.getElementById('ste                           const nextBtn = document.getElementById('next                        const backBtn = document.getElementById('back-bt                     const conditionInput = document.getElementById('cond                         const goalInput = document.getElementById('goal'                    onst emailInput = document.getElementById('email');
 
-                    nextBtn.addEventListener('click', () => {
-                        // Basic HTML5 validation trigger
-                        if (!conditionInput.checkValidity()) {
-                            conditionInput.reportValidity();
-                            return;
-                        }
-                        if (!goalInput.checkValidity()) {
-                            goalInput.reportValidity();
-                            return;
-                        }
-
-                        // Transition to Step 2
-                        step1.style.display = 'none';
-                        step2.style.display = 'flex';
-                        step2.classList.remove('hidden');
-
-                        // Update dots
-                        dot1.classList.remove('bg-[var(--amber)]');
-                        dot1.classList.add('bg-[var(--border-strong)]');
-                        dot2.classList.remove('bg-[var(--border-strong)]');
-                        dot2.classList.add('bg-[var(--amber)]');
-
-                        // Make email explicitly required only on step 2 visibility to prevent early form submission block
-                        emailInput.required = true;
-                        // Small timeout to allow transition before focus
-                        setTimeout(() => emailInput.focus(), 100);
-                    });
-
-                    backBtn.addEventListener('click', () => {
-                        // Disable email required when back
-                        emailInput.required = false;
-
-                        // Transition to Step 1
-                        step2.style.display = 'none';
-                        step1.style.display = 'block';
-
-                        // Update dots
-                        dot2.classList.remove('bg-[var(--amber)]');
-                        dot2.classList.add('bg-[var(--border-strong)]');
-                        dot1.classList.remove('bg-[var(--border-strong)]');
-                        dot1.classList.add('bg-[var(--amber)]');
-                    });
-
-                    // Prevent form submit on Enter key in Step 1
-                    document.getElementById('generator-form').addEventListener('keydown', function (event) {
-                        if (event.key === 'Enter') {
-                            if (step1.style.display !== 'none') {
-                                event.preventDefault(); // Don't submit the form
-                                nextBtn.click(); // Only go to next step
-                            }
-                        }
+                            ventListener('click', () => {
+                                         tion trigger
+                        if (!conditionInp                                              conditionInput.r                                         return;
+                                              if (!goalInput.checkValidi                                goalInput.reportValidity();
+                             n;
+                                                       n to Step 2
+                                                                          step                                                            mo                                              dot                        --amber)]');
+                                         g-[var(--border-strong)]');
+                          lassList.remove('bg-[var(--border-                         g-[var(--amber)                          // Make email explicitly required only on                          early form submission block
+                                            ue;
+                        // Small timeout to allo                                              setTimeout(() => em                                     backBtn.addEventListener('click', () => {
+                        // Disable email requ                                   emailInput.requir                                 // Transition to Step 1
+                                          'none';
+                        step1.styl                                             te dots
+                        dot2.class                        )]');
+                        dot2.c                        er-strong)]');
+              o                        ]');
+                                           [var(--amber)]');
+                                         // Prevent form submit on                          ntById('generat                        keydown', function (event) {
+                                       Enter') {
+                            if (step1.s                                                       event.preventDefault(                                                        nextBtn.c                    xt s                          }
                     });
                 });
             </script>
