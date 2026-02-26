@@ -208,87 +208,89 @@ endif; ?>
 
         </div>
 
-        <!-- Right Column: Form (Profile Details) -->
+        <!-- Right Column: Prep Kit Upsell/Access -->
         <div
-            class="bg-white border border-[var(--border)] rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-fit">
-            <div class="px-8 py-6 border-b border-[var(--border)] bg-[var(--cream)]">
-                <h2 class="font-serif text-[17px] font-bold text-[var(--ink)] mb-1">Request Details</h2>
-                <p class="text-[14px] text-[var(--ink-light)]">Customize your prompt generation strategy.</p>
+            class="bg-gradient-to-br from-[#1E293B] to-[var(--ink)] border border-[var(--border)] rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-fit relative">
+            <div
+                class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none">
             </div>
 
-            <div class="p-8 flex-1 space-y-6">
-                <!-- Inputs -->
+            <div class="px-8 py-6 border-b border-white/10 relative z-10 flex items-center justify-between">
                 <div>
-                    <label class="block text-[13px] font-bold text-[var(--ink)] mb-1.5">Your Full Name</label>
-                    <input type="text" placeholder="e.g. Acme Corp"
-                        class="w-full border border-[var(--border-strong)] rounded-lg px-3.5 py-2.5 text-[14px] text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:ring-2 focus:ring-[var(--amber)] focus:border-[var(--amber)] focus:outline-none transition-shadow shadow-sm bg-white">
+                    <h2 class="font-serif text-[19px] font-bold text-white mb-1">Doctor Appointment Prep Kit</h2>
+                    <p class="text-[13px] text-white/70">Premium toolset for better clinical visits.</p>
                 </div>
-
-                <div>
-                    <label class="block text-[13px] font-bold text-[var(--ink)] mb-1.5">Your First Name</label>
-                    <input type="text" placeholder="e.g. John"
-                        class="w-full border border-[var(--border-strong)] rounded-lg px-3.5 py-2.5 text-[14px] text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:ring-2 focus:ring-[var(--amber)] focus:border-[var(--amber)] focus:outline-none transition-shadow shadow-sm bg-white">
+                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
+                    <span class="material-symbols-outlined">medical_information</span>
                 </div>
+            </div>
 
-                <div>
-                    <label class="block text-[13px] font-bold text-[var(--ink)] mb-1.5">Ask For A Referral If Customer
-                        Has Already Left A Review?</label>
-                    <div class="relative">
-                        <select
-                            class="w-full border border-[var(--border-strong)] rounded-lg px-3.5 py-2.5 text-[14px] text-[var(--ink)] focus:ring-2 focus:ring-[var(--amber)] focus:border-[var(--amber)] focus:outline-none appearance-none transition-shadow shadow-sm bg-white cursor-pointer">
-                            <option>No</option>
-                            <option>Yes</option>
-                        </select>
+            <div class="p-8 flex-1 space-y-6 relative z-10 bg-white/5">
+                <?php if (!empty($user['has_prep_kit'])): ?>
+                <!-- State 2: Purchased Access -->
+                <div class="bg-white/10 rounded-lg p-5 border border-white/20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-[var(--teal)] text-2xl">check_circle</span>
+                        <span class="text-white font-bold tracking-wide">Access Unlocked</span>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed mb-6">You have full access to our premium prep kit.
+                        Download your printable agendas or use the interactive symptom tracker below.</p>
+
+                    <div class="space-y-3">
+                        <a href="#"
+                            class="flex items-center justify-between bg-white text-[var(--ink)] hover:bg-[var(--cream)] px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm"
+                            onclick="event.preventDefault(); alert('Downloading PDF...');">
+                            <span class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-[18px]">picture_as_pdf</span> Printable
+                                Agendas</span>
+                            <span class="material-symbols-outlined text-[18px]">download</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-between bg-[var(--teal)] text-white hover:bg-[var(--teal-dark)] px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm"
+                            onclick="event.preventDefault(); alert('Opening module...');">
+                            <span class="flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-[18px]">fact_check</span> Interactive
+                                Tracker</span>
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+                <?php
+else: ?>
+                <!-- State 1: Upsell -->
+                <p class="text-white/90 text-[15px] leading-relaxed">Most patients leave their appointments wishing they
+                    had asked different questions. Don't let your next 15-minute appointment go to waste.</p>
+
+                <ul class="space-y-3 mt-4">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
+                        <span class="text-white/80 text-sm">Downloadable symptom trackers and medication logs</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
+                        <span class="text-white/80 text-sm">Printable "Red Flag" question frameworks</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-[var(--amber)] text-xl shrink-0 mt-0.5">check</span>
+                        <span class="text-white/80 text-sm">Negotiating effectively with insurance/specialists</span>
+                    </li>
+                </ul>
+
+                <div class="pt-6 border-t border-white/10 mt-6">
+                    <div class="flex items-end gap-2 mb-4">
+                        <span class="text-3xl font-serif font-bold text-white">$29</span>
+                        <span class="text-white/60 text-sm pb-1 mr-1">one-time</span>
                         <span
-                            class="material-symbols-outlined text-[var(--ink-muted)] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-xl">expand_more</span>
+                            class="bg-[var(--amber)] text-[var(--ink)] text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wider shadow-sm mb-1.5">Best
+                            Value</span>
                     </div>
+                    <a href="/billing/checkout?plan=prep_kit"
+                        class="block w-full text-center bg-[var(--amber)] hover:bg-[var(--amber-dark)] text-[var(--ink)] px-6 py-3 rounded-lg font-bold transition-colors shadow-lg">
+                        Upgrade & Unlock Kit
+                    </a>
                 </div>
-
-                <div>
-                    <div class="mb-1.5 flex flex-col">
-                        <label class="block text-[13px] font-bold text-[var(--ink)] mb-0.5">Alert Threshold</label>
-                        <p class="text-[12px] text-[var(--ink-light)] leading-snug">We'll notify you if your requests
-                            drop below this number every 2 weeks</p>
-                    </div>
-                    <div class="relative mt-2">
-                        <select
-                            class="w-full border border-[var(--border-strong)] rounded-lg px-3.5 py-2.5 text-[14px] text-[var(--ink)] focus:ring-2 focus:ring-[var(--amber)] focus:border-[var(--amber)] focus:outline-none appearance-none transition-shadow shadow-sm bg-white cursor-pointer">
-                            <option>1 request</option>
-                            <option>5 requests</option>
-                            <option>10 requests</option>
-                        </select>
-                        <span
-                            class="material-symbols-outlined text-[var(--ink-muted)] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-xl">expand_more</span>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-[13px] font-bold text-[var(--ink)] mb-1.5">Total Review Attempts</label>
-                    <div class="relative">
-                        <select
-                            class="w-full border border-[var(--border-strong)] rounded-lg px-3.5 py-2.5 text-[14px] text-[var(--ink)] focus:ring-2 focus:ring-[var(--amber)] focus:border-[var(--amber)] focus:outline-none appearance-none transition-shadow shadow-sm bg-white cursor-pointer">
-                            <option>1 reminder</option>
-                            <option>2 reminders</option>
-                            <option>3 reminders</option>
-                        </select>
-                        <span
-                            class="material-symbols-outlined text-[var(--ink-muted)] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-xl">expand_more</span>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-[13px] font-bold text-[var(--ink)] mb-2">Personalized Image</label>
-                    <div
-                        class="border-[1.5px] border-dashed border-[var(--border-strong)] rounded-xl p-8 text-center bg-[var(--cream)]/50 hover:bg-[var(--cream)] hover:border-[var(--amber-light)] transition-all cursor-pointer group flex flex-col items-center justify-center min-h-[140px]">
-                        <span
-                            class="material-symbols-outlined text-3xl text-[var(--border-strong)] mb-3 group-hover:text-[var(--amber-light)] transition-colors">image</span>
-                        <p class="text-[14px] font-medium text-[var(--amber)] mb-0.5"><span
-                                class="hover:text-[var(--amber-dark)]">Upload a file</span> <span
-                                class="text-[var(--ink-light)] font-normal">or drag and drop</span></p>
-                        <p class="text-[12px] text-[var(--ink-muted)]">PNG, JPG, GIF up to 10MB</p>
-                    </div>
-                </div>
-
+                <?php
+endif; ?>
             </div>
         </div>
 

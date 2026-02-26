@@ -16,10 +16,11 @@ function stripe_webhook_secret(): string
 function stripe_price_id_for_plan(string $plan): string
 {
     return match ($plan) {
-        'pack' => (string) app_env('STRIPE_PRICE_PACK_SINGLE', ''),
-        'annual' => (string) app_env('STRIPE_PRICE_SUB_ANNUAL', ''),
-        default => (string) app_env('STRIPE_PRICE_SUB_MONTHLY', ''),
-    };
+            'pack' => (string)app_env('STRIPE_PRICE_PACK_SINGLE', ''),
+            'prep_kit' => (string)app_env('STRIPE_PRICE_PREP_KIT', ''),
+            'annual' => (string)app_env('STRIPE_PRICE_SUB_ANNUAL', ''),
+            default => (string)app_env('STRIPE_PRICE_SUB_MONTHLY', ''),
+        };
 }
 
 function stripe_sdk_bootstrap(): bool
@@ -73,7 +74,8 @@ function stripe_verify_signature(string $payload, ?string $signatureHeader, stri
         try {
             \Stripe\Webhook::constructEvent($payload, $signatureHeader, $secret);
             return true;
-        } catch (Throwable $exception) {
+        }
+        catch (Throwable $exception) {
             stripe_log('Stripe signature verification error: ' . $exception->getMessage());
             return false;
         }
@@ -115,7 +117,7 @@ function stripe_construct_webhook_event(string $payload, ?string $signatureHeade
     }
 
     if (stripe_sdk_bootstrap()) {
-        $event = \Stripe\Webhook::constructEvent($payload, (string) $signatureHeader, $secret);
+        $event = \Stripe\Webhook::constructEvent($payload, (string)$signatureHeader, $secret);
         return $event->toArray();
     }
 
@@ -131,12 +133,12 @@ function stripe_create_checkout_url(array $params): string
 {
     stripe_require_sdk();
 
-    $plan = strtolower((string) ($params['plan'] ?? 'monthly'));
-    $email = strtolower(trim((string) ($params['email'] ?? '')));
-    $userId = (string) ($params['user_id'] ?? '');
-    $slug = strtolower((string) ($params['slug'] ?? ''));
+    $plan = strtolower((string)($params['plan'] ?? 'monthly'));
+    $email = strtolower(trim((string)($params['email'] ?? '')));
+    $userId = (string)($params['user_id'] ?? '');
+    $slug = strtolower((string)($params['slug'] ?? ''));
 
-    if (!in_array($plan, ['pack', 'monthly', 'annual'], true)) {
+    if (!in_array($plan, ['pack', 'monthly', 'annual', 'prep_kit'], true)) {
         throw new RuntimeException('Unsupported checkout plan.');
     }
 
@@ -157,14 +159,14 @@ function stripe_create_checkout_url(array $params): string
         'customer_email' => $email,
         'client_reference_id' => $userId,
         'line_items' => [[
-            'price' => $priceId,
-            'quantity' => 1,
-        ]],
+                'price' => $priceId,
+                'quantity' => 1,
+            ]],
         'success_url' => app_url('/billing/success?session_id={CHECKOUT_SESSION_ID}'),
         'cancel_url' => app_url('/billing/checkout?cancelled=1&plan=' . urlencode($plan)),
     ];
 
-    if ($plan === 'pack') {
+    if ($plan === 'pack' || $plan === 'prep_kit') {
         $session = \Stripe\Checkout\Session::create(array_merge($commonSession, [
             'mode' => 'payment',
             'metadata' => [
@@ -180,7 +182,8 @@ function stripe_create_checkout_url(array $params): string
                 ],
             ],
         ]));
-    } else {
+    }
+    else {
         $session = \Stripe\Checkout\Session::create(array_merge($commonSession, [
             'mode' => 'subscription',
             'metadata' => [
@@ -196,7 +199,7 @@ function stripe_create_checkout_url(array $params): string
         ]));
     }
 
-    $url = (string) ($session->url ?? '');
+    $url = (string)($session->url ?? '');
     if ($url === '') {
         throw new RuntimeException('Stripe did not return a checkout URL.');
     }
@@ -216,9 +219,10 @@ function stripe_fetch_customer_email(string $customerId): ?string
 
     try {
         $customer = \Stripe\Customer::retrieve($customerId);
-        $email = strtolower(trim((string) ($customer->email ?? '')));
+        $email = strtolower(trim((string)($customer->email ?? '')));
         return $email !== '' ? $email : null;
-    } catch (Throwable $exception) {
+    }
+    catch (Throwable $exception) {
         stripe_log('Failed to fetch customer email for ' . $customerId . ': ' . $exception->getMessage());
         return null;
     }
@@ -233,7 +237,8 @@ function stripe_checkout_session_details(string $sessionId): array
     try {
         $session = \Stripe\Checkout\Session::retrieve($sessionId);
         return $session->toArray();
-    } catch (Throwable $exception) {
+    }
+    catch (Throwable $exception) {
         stripe_log('Unable to load checkout session ' . $sessionId . ': ' . $exception->getMessage());
         return [];
     }

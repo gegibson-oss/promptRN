@@ -19,15 +19,16 @@ if ($payload === false || trim($payload) === '') {
 
 try {
     $event = stripe_construct_webhook_event($payload, $_SERVER['HTTP_STRIPE_SIGNATURE'] ?? null);
-} catch (Throwable $exception) {
+}
+catch (Throwable $exception) {
     stripe_log('Webhook rejected: ' . $exception->getMessage());
     http_response_code(400);
     echo 'Signature verification failed';
     exit;
 }
 
-$eventId = (string) ($event['id'] ?? '');
-$eventType = (string) ($event['type'] ?? 'unknown');
+$eventId = (string)($event['id'] ?? '');
+$eventType = (string)($event['type'] ?? 'unknown');
 if ($eventId === '') {
     http_response_code(400);
     echo 'Missing event ID';
@@ -42,8 +43,8 @@ if (users_has_processed_event($eventId)) {
 }
 
 $object = is_array($event['data']['object'] ?? null) ? $event['data']['object'] : [];
-$email = strtolower((string) ($object['customer_email'] ?? $object['receipt_email'] ?? $object['metadata']['email'] ?? ''));
-$customerId = (string) ($object['customer'] ?? '');
+$email = strtolower((string)($object['customer_email'] ?? $object['receipt_email'] ?? $object['metadata']['email'] ?? ''));
+$customerId = (string)($object['customer'] ?? '');
 
 $user = null;
 if ($email !== '') {
@@ -73,6 +74,7 @@ if ($user === null && $email !== '') {
         'stripe_customer_id' => $customerId,
         'stripe_subscription_id' => null,
         'purchased_packs' => [],
+        'has_prep_kit' => false,
         'convertkit_subscriber_id' => null,
     ];
 }
@@ -80,32 +82,38 @@ if ($user === null && $email !== '') {
 if ($user !== null) {
     switch ($eventType) {
         case 'payment_intent.succeeded':
-            $slug = strtolower((string) ($object['metadata']['condition_slug'] ?? ''));
-            if (app_condition_exists($slug)) {
-                $packs = $user['purchased_packs'] ?? [];
-                if (!is_array($packs)) {
-                    $packs = [];
+            $plan = strtolower((string)($object['metadata']['plan'] ?? ''));
+            if ($plan === 'prep_kit') {
+                $user['has_prep_kit'] = true;
+            }
+            else {
+                $slug = strtolower((string)($object['metadata']['condition_slug'] ?? ''));
+                if (app_condition_exists($slug)) {
+                    $packs = $user['purchased_packs'] ?? [];
+                    if (!is_array($packs)) {
+                        $packs = [];
+                    }
+                    if (!in_array($slug, $packs, true)) {
+                        $packs[] = $slug;
+                    }
+                    $user['purchased_packs'] = $packs;
                 }
-                if (!in_array($slug, $packs, true)) {
-                    $packs[] = $slug;
-                }
-                $user['purchased_packs'] = $packs;
             }
             break;
 
         case 'customer.subscription.created':
         case 'customer.subscription.updated':
             $user['subscription_status'] = 'active';
-            $plan = strtolower((string) ($object['metadata']['plan'] ?? 'monthly'));
+            $plan = strtolower((string)($object['metadata']['plan'] ?? 'monthly'));
             if (!in_array($plan, ['monthly', 'annual'], true)) {
                 $plan = 'monthly';
             }
 
             $user['subscription_plan'] = $plan;
-            $periodEnd = (int) ($object['current_period_end'] ?? 0);
+            $periodEnd = (int)($object['current_period_end'] ?? 0);
             $user['subscription_expires'] = $periodEnd > 0 ? gmdate('c', $periodEnd) : null;
             $user['stripe_customer_id'] = $customerId;
-            $user['stripe_subscription_id'] = (string) ($object['id'] ?? ($user['stripe_subscription_id'] ?? ''));
+            $user['stripe_subscription_id'] = (string)($object['id'] ?? ($user['stripe_subscription_id'] ?? ''));
             break;
 
         case 'customer.subscription.deleted':
