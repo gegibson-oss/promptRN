@@ -10,6 +10,8 @@ Options -Indexes
 
   RewriteRule ^(?:data|private|includes)(?:/|$) - [F,L]
 
+  RewriteRule ^sitemap\.xml$ /sitemap.php [L]
+
   RewriteRule ^about/?$ /about.php [L,QSA]
 
   RewriteRule ^prompts/?$ /prompts/index.php [L,QSA]

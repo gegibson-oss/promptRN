@@ -6,4 +6,4 @@ Disallow: /auth/
 Disallow: /billing/
 Disallow: /members/
 
-Sitemap: https://promptrn.com/sitemap.php
+Sitemap: https://promptrn.com/sitemap.xml

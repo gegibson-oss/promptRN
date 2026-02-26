@@ -277,11 +277,14 @@ if ($authorQuote === '') {
                 <div class="condition-template-medical-review">
                     <p class="condition-template-review-label">Medically Reviewed By:</p>
                     <p class="condition-template-reviewer">
-                        <strong><?= app_h($condition['medical_review']['reviewer_name']); ?></strong>, 
+                        <strong>
+                            <?= app_h($condition['medical_review']['reviewer_name']); ?>
+                        </strong>,
                         <?= app_h($condition['medical_review']['reviewer_credentials']); ?>
                     </p>
                     <p class="condition-template-review-date">
-                        Last Reviewed: <?php
+                        Last Reviewed:
+                        <?php
     $reviewDateRaw = $condition['medical_review']['last_reviewed_date'];
     $reviewDateDisplay = $reviewDateRaw;
     if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $reviewDateRaw) === 1) {
@@ -442,7 +445,7 @@ endif; ?>
         continue;
     }
 ?>
-                        <details class="condition-template-faq-item" <?= $faqIndex === 0 ? ' open' : ''; ?>>
+                        <details class="condition-template-faq-item" <?=$faqIndex===0 ? ' open' : '' ; ?>>
                             <summary>
                                 <?= app_h($faqQuestion); ?>
                             </summary>
@@ -464,12 +467,14 @@ endforeach; ?>
                     <?php if (isset($condition['sources']) && is_array($condition['sources']) && count($condition['sources']) > 0): ?>
                     <p class="condition-template-sources">
                         <strong>Sources:</strong>
-                        <ul class="condition-template-sources-list">
-                            <?php foreach ($condition['sources'] as $source): ?>
-                            <li><?= app_h((string)$source); ?></li>
-                            <?php
+                    <ul class="condition-template-sources-list">
+                        <?php foreach ($condition['sources'] as $source): ?>
+                        <li>
+                            <?= app_h((string)$source); ?>
+                        </li>
+                        <?php
     endforeach; ?>
-                        </ul>
+                    </ul>
                     </p>
                     <?php
 endif; ?>
@@ -557,5 +562,5 @@ endif; ?>
         </div>
     </section>
 </article>
-<?php seo_render_condition_schemas($condition, $meta, $canonicalUrl); ?>
+<?php seo_render_condition_schemas($condition, $meta, $canonicalUrl, $situation); ?>
 <?php require __DIR__ . '/../includes/footer.php'; ?>

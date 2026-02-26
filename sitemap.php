@@ -16,30 +16,57 @@ $urls = [
 ];
 
 foreach ($conditionFiles as $filePath) {
-    $condition = app_read_json_file((string) $filePath);
-    $slug = (string) ($condition['slug'] ?? pathinfo((string) $filePath, PATHINFO_FILENAME));
+    $condition = app_read_json_file((string)$filePath);
+    $slug = (string)($condition['slug'] ?? pathinfo((string)$filePath, PATHINFO_FILENAME));
     if (!app_validate_slug($slug)) {
         continue;
     }
 
-    $lastmod = (string) ($condition['last_updated'] ?? gmdate('Y-m-d'));
-    if (!preg_match('/^\\d{4}-\\d{2}-\\d{2}$/', $lastmod)) {
-        $lastmod = gmdate('Y-m-d');
+    $conditionMtime = @filemtime((string)$filePath);
+    if ($conditionMtime === false) {
+        $conditionMtime = time();
     }
+
+    $lastmodCondition = gmdate('Y-m-d', $conditionMtime);
 
     $urls[] = [
         'loc' => app_url('/prompts/' . $slug),
-        'lastmod' => $lastmod,
+        'lastmod' => $lastmodCondition,
     ];
+
+    $situations = app_situation_slugs();
+    foreach ($situations as $sitSlug) {
+        $sitSlug = (string)$sitSlug;
+
+        $sitPath = app_data_path('situations/' . $sitSlug . '.json');
+        if (is_file($sitPath)) {
+            $sitMtime = @filemtime($sitPath);
+            if ($sitMtime === false) {
+                $sitMtime = time();
+            }
+
+            $comboMtime = max($conditionMtime, $sitMtime);
+
+            $urls[] = [
+                'loc' => app_url('/prompts/' . $slug . '/' . $sitSlug),
+                'lastmod' => gmdate('Y-m-d', $comboMtime),
+            ];
+        }
+    }
 }
 
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<?php foreach ($urls as $url): ?>
-  <url>
-    <loc><?= app_h($url['loc']); ?></loc>
-    <lastmod><?= app_h($url['lastmod']); ?></lastmod>
-  </url>
-<?php endforeach; ?>
+    <?php foreach ($urls as $url): ?>
+    <url>
+        <loc>
+            <?= app_h((string)$url['loc']); ?>
+        </loc>
+        <lastmod>
+            <?= app_h((string)$url['lastmod']); ?>
+        </lastmod>
+    </url>
+    <?php
+endforeach; ?>
 </urlset>

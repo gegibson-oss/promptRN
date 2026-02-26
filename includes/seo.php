@@ -54,31 +54,31 @@ function seo_condition_missing_fields(array $condition): array
 function seo_render_meta_tags(array $meta): void
 {
     $resolved = seo_defaults($meta);
-    ?>
-    <title><?= app_h((string) $resolved['title']); ?></title>
-    <meta name="description" content="<?= app_h((string) $resolved['description']); ?>">
-    <link rel="canonical" href="<?= app_h((string) $resolved['canonical']); ?>">
-    <meta name="robots" content="<?= app_h((string) $resolved['robots']); ?>">
+?>
+    <title><?= app_h((string)$resolved['title']); ?></title>
+    <meta name="description" content="<?= app_h((string)$resolved['description']); ?>">
+    <link rel="canonical" href="<?= app_h((string)$resolved['canonical']); ?>">
+    <meta name="robots" content="<?= app_h((string)$resolved['robots']); ?>">
     <?php
 }
 
-function seo_render_condition_schemas(array $condition, array $siteMeta, string $canonicalUrl): void
+function seo_render_condition_schemas(array $condition, array $siteMeta, string $canonicalUrl, array $situation = []): void
 {
     $authorName = $condition['author']['name'] ?? ($siteMeta['author_name'] ?? 'PromptRN RN Team');
     $authorCredentials = $condition['author']['credentials'] ?? 'Registered Nurse';
 
     $authorLinkedin = $condition['author']['linkedin'] ?? '';
     $authorExperience = $condition['author']['experience'] ?? '';
-    
+
     $authorSchema = [
         '@type' => 'Person',
         'name' => $authorName,
         'jobTitle' => $authorCredentials,
     ];
-    if ((string) $authorExperience !== '') {
+    if ((string)$authorExperience !== '') {
         $authorSchema['description'] = $authorExperience;
     }
-    if ((string) $authorLinkedin !== '') {
+    if ((string)$authorLinkedin !== '') {
         $authorSchema['sameAs'] = $authorLinkedin;
     }
 
@@ -102,8 +102,8 @@ function seo_render_condition_schemas(array $condition, array $siteMeta, string 
     $faqs = $condition['faqs'] ?? [];
     if (is_array($faqs)) {
         foreach ($faqs as $faq) {
-            $question = (string) ($faq['question'] ?? '');
-            $answer = (string) ($faq['answer'] ?? '');
+            $question = (string)($faq['question'] ?? '');
+            $answer = (string)($faq['answer'] ?? '');
             if ($question === '' || $answer === '') {
                 continue;
             }
@@ -132,17 +132,36 @@ function seo_render_condition_schemas(array $condition, array $siteMeta, string 
             [
                 '@type' => 'ListItem',
                 'position' => 2,
-                'name' => 'Prompts',
+                'name' => 'Conditions',
                 'item' => app_url('/prompts'),
-            ],
-            [
-                '@type' => 'ListItem',
-                'position' => 3,
-                'name' => $condition['condition_name'] ?? 'Condition',
-                'item' => $canonicalUrl,
             ],
         ],
     ];
+
+    $conditionSlug = (string)($condition['slug'] ?? '');
+
+    if ($situation !== []) {
+        $breadcrumbSchema['itemListElement'][] = [
+            '@type' => 'ListItem',
+            'position' => 3,
+            'name' => $condition['condition_name'] ?? 'Condition',
+            'item' => app_url('/prompts/' . $conditionSlug),
+        ];
+        $breadcrumbSchema['itemListElement'][] = [
+            '@type' => 'ListItem',
+            'position' => 4,
+            'name' => $situation['title'] ?? 'Situation',
+            'item' => $canonicalUrl,
+        ];
+    }
+    else {
+        $breadcrumbSchema['itemListElement'][] = [
+            '@type' => 'ListItem',
+            'position' => 3,
+            'name' => $condition['condition_name'] ?? 'Condition',
+            'item' => $canonicalUrl,
+        ];
+    }
 
     $schemas = [$medicalSchema, $breadcrumbSchema];
     if ($faqEntities !== []) {
